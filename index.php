@@ -1,211 +1,230 @@
-﻿<!DOCTYPE html>
+﻿<?php 
+//Use this page as template for all the other pages linked in the app through hyper links
+?>
+
+<!DOCTYPE html>
 <html lang="en">
-    <?php include"header.php";
-    ?>
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid">
-                        <!-- <h1 class="mt-4">Overall MTA Work Status (<span id=prog></span> Complete)&nbsp&nbsp<i class="fa fa-chart-line" aria-hidden="true" onclick="window.open('overallprogress.php','Job Progress', 'width=750, height=500');" style="cursor:pointer;"></i></h1> -->
-                        <h1 class="mt-4">Telephone Directory </h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">HWP(M)</li>
-                        </ol>
-                        <div class="row"> 
-                            <div class="col-xl col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">View All<h3 id="mech-prog"></h3></div>
-                                   
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="mech.php">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl col-md-6">
-                                <div class="card bg-elec text-white mb-4">
-                                    <div class="card-body">Add New <h3 id="elec-prog"></h3></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="elec.php">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-							                            <div class="col-xl col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Update<h3 id="inst-prog"></h3></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="inst.php">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-							<div class="col-xl col-md-6">
-                                <div class="card bg-isi text-white mb-4">
-                                    <div class="card-body">Delete<h3 id="isi-prog"></h3></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="isi.php">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl col-md-6">
-                                <div class="card bg-proc text-white mb-4">
-                                    <div class="card-body">Production-Process<h3 id="prod-prog"></h3></div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="prod.php">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                                                        
-
-                            
+<?php include "header.php";
+?>
+<div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid">
+            <!-- <h1 class="mt-4">Overall MTA Work Status (<span id=prog></span> Complete)&nbsp&nbsp<i class="fa fa-chart-line" aria-hidden="true" onclick="window.open('overallprogress.php','Job Progress', 'width=750, height=500');" style="cursor:pointer;"></i></h1> -->
+            <h1 class="mt-4">Telephone Directory </h1>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item active">HWP(M)</li>
+            </ol>
+            <div class="row">
+                <div class="col-xl col-md-4">
+                    <div class="card bg-primary text-white mb-4">
+                        <div class="card-body">
+                            <h5>Emergency</h5>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="card mb-4">
-                                    <div class="card-header"><i class="fas fa-chart-pie mr-1"></i>Sectional Job quantum in %</div>
-                                    <div class="card-body"><canvas id="myPieChart" width="100%" height="50"></canvas></div>
+
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="mech.php">View Details</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl col-md-4">
+                    <div class="card bg-elec text-white mb-4">
+                        <div class="card-body">
+                            <h5>Managers</h5>
+                        </div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="elec.php">View Details</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl col-md-4">
+                    <div class="card bg-warning text-white mb-4">
+                        <div class="card-body"><h5>Main Plant</h5>
+                        </div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="inst.php">View Details</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>  
+                <div class="col-xl col-md-4">
+                    <div class="card bg-success text-white mb-4">
+                        <div class="card-body"><h5>CPP</h5>
+                        </div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="inst.php">View Details</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>  
+                <div class="col-xl col-md-4">
+                    <div class="card bg-primary text-white mb-4">
+                        <div class="card-body"><h5>Colony</h5>
+                        </div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="inst.php">View Details</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>      
+                <div class="col-xl col-md-4">
+                    <div class="card bg-danger text-white mb-4">
+                        <div class="card-body"><h5>CISF</h5>
+                        </div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="inst.php">View Details</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>    
+                <div class="col-xl col-md-4">
+                    <div class="card bg-secondary text-white mb-4">
+                        <div class="card-body"><h5>Admin</h5>
+                        </div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="inst.php">View Details</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl col-md-4">
+                    <div class="card bg-info text-white mb-4">
+                        <div class="card-body"><h5>All</h5>
+                        </div>
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            <a class="small text-white stretched-link" href="inst.php">View Details</a>
+                            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+                
+
+            </div>
+            
+
+            <div class="card mb-4">
+                <div class="card-header"><i class="fas fa-table mr-1"></i>All Contacts</div>
+                <div class="card-body">
+                    <div class="table-responsive table-hover">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Emp.No</th>
+                                    <th>Name</th>
+                                    <th>Designation</th>
+                                    <th>Section</th>
+                                    <th>Office</th>
+                                    <th>Res</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <?php $query = $conn->query("SELECT * FROM `master`");
+                                if (!$query) die($conn->error);
+                                $x = 0;
+                                while ($row = $query->fetch_assoc()) {
+                                    echo"<tr>";
+                                    ?>
+                                    <td><?php echo $row['icno']?></td>
+                                    <td><?php echo $row['name']?></td>
+                                    <td><?php echo $row['desig']?></td>
+                                    <td><?php echo $row['section']?></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal1"><i class="fa fa-eye"></i></button>
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal1"><i class="fa fa-edit"></i></button>
                                     
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header"><i class="fas fa-chart-bar mr-1"></i>Sectional and Overall Job Progress in %</div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="50"></canvas></div>
-                                </div>
-                            </div>
-                        </div>
-                       <div class="card mb-4">
-                            <div class="card-header"><i class="fas fa-table mr-1"></i>Overall Status Table</div>
-                            <div class="card-body">
-                                <div class="table-responsive table-hover">
-                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>Section</th>
-                                                <th>Sectional Weightage%</th>
-                                                <th>Sectional Job Completion%</th>
-                                                <th>Overall Job Completion%</th>
-                                            </tr>
-                                        </thead>
+                                    </td>
+                                    <?php
+                                    echo "</tr>";
+                                    $x++;
+                                } ?>
+                                </tr>
 
-                                        <tbody>
-										 <?php $query=$conn->query("SELECT * FROM `gm`");
-											if (!$query) die($conn->error);
-											$x=0;
-											while($row = $query->fetch_assoc())
-											{
-												echo "<tr>";
-												echo"<td>";
-												if($row['section']=="mech-p")
-												echo "<a href='mech.php'>Mechanical-Process</a>";
-											    else if($row['section']=="elec-p")
-												echo "<a href='elec.php'>Electrical-Process</a>";
-												else if($row['section']=="inst-p")
-												echo "<a href='inst.php'>Instrumentation-Process</a>";
-												else if($row['section']=="isi")
-												echo "<a href='isi.php'> ISI</a>";
-												else if($row['section']=="prod-p")
-												echo "<a href='prod.php'>Production-Process</td>";
-												echo"</td>";
-												echo"<td>".$row['weight']."</td>";
-												$query3=$conn->query("SELECT * FROM `main_act` WHERE section='".$row['section']."'");
-												if (!$query3) die($conn->error);
-												$temp2=0;
-												while($row3 = $query3->fetch_assoc())
-												{
-													$query2=$conn->query("SELECT * FROM `sub_act` WHERE `main_act`='".$row3['eno']."'");
-												//echo "SELECT * FROM `sub_act` WHERE `main_act`='".$row['eno']."'";
-													if(!$query2) die($conn->error);
-													$temp=0;
-													while ($row2=$query2->fetch_assoc()){
-													$temp=$temp+($row2['qty_exec']*$row2['weight']/$row2['qty_plan']);
-													}
-													$temp2=$temp2+round(($temp/100*$row3['section_weight']),2);
-												}
-												echo"<td>".round($temp2,2)."</td>";
-												echo"<td>".round($temp2*$row['weight']/100,2)."</td>";
-												$sec[]=round($temp2,2);
-												$overall[]=round($temp2*$row['weight']/100,2);
-												$x++;
-												echo "</tr>";
-											}?>
-                                           
-                                           
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+
+                            </tbody>
+                        </table>
                     </div>
-                </main>
-<br>
-                <footer class="py-4 bg-light mt-auto card-footer">
-                    <div class="container-fluid">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy;2020 Developed By Chaitanya Allam, SO/E, Inst-P, <a href="mailto:chaitanya@man.hwb.gov.in" style="font-size:0.8rem">Email:chaitanya@man.hwb.gov.in</a></div>
-                            
-                        </div>
-                    </div>
-                </footer>
+                </div>
             </div>
         </div>
-       <?php include "footer.php"?>
-<script>
-Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-Chart.defaults.global.defaultFontColor = '#292b2c';
+    </main>
+    <br>
+    <footer class="py-4 bg-light mt-auto card-footer">
+        <div class="container-fluid">
+            <div class="d-flex align-items-center justify-content-between small">
+                <div class="text-muted">Copyright &copy;2020 Developed By Chaitanya Allam, SO/E, Inst-P, <a href="mailto:chaitanya@man.hwb.gov.in" style="font-size:0.8rem">Email:chaitanya@man.hwb.gov.in</a></div>
 
-// Pie Chart Example
-var ctx = document.getElementById("myPieChart");
-var myPieChart = new Chart(ctx, {
-  type: 'pie',
-  data: {
-    labels: ["Mech-P", "Elec-P", "Inst-P", "ISI", "Prod-P"],
-    datasets: [{data: [ 
-    <?php $query=$conn->query("SELECT * FROM `gm`");
-                                    if (!$query) die($conn->error);
-    while($row = $query->fetch_assoc())
-                                    {
-        echo $row['weight'].", ";}
-      ?>],
-      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745', '#777'],
-    }],
-  },
-});
-var ctx = document.getElementById("myBarChart");
-var myPieChart = new Chart(ctx, {
-  type: 'bar',
-  data: {
-    labels: ["Mech-P", "Elec-P", "Inst-P", "ISI", "Prod-P"],
-    datasets: [{
-		label: 'Overall Completed in %',
-		data: [ <?php foreach($overall as $item){
-		 echo $item.", ";
-		}?>
-	
-    ],
-      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745', '#777'],
-    },
-	{
-		label: 'Sectional job %',
-		data: [ 
-    <?php foreach($sec as $item){
-	echo $item.", ";}
-      ?>],
-      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745', '#777'],
-    }
-	],
-	},
-	options:     {legend: {
-      display: false
-    }},
-});
-$("#mech-prog").html('<?php echo $sec[0];?>%');
-$("#elec-prog").html('<?php echo $sec[1];?>%');
-$("#inst-prog").html('<?php echo $sec[2];?>%');
-$("#isi-prog").html('<?php echo $sec[3];?>%');
-$("#prod-prog").html('<?php echo $sec[4];?>%');
-$("#prog").html('<?php echo $overall[0]+$overall[1]+$overall[2]+$overall[3]+$overall[4]."%";?>')
-</script>
+            </div>
+        </div>
+    </footer>
+</div>
+</div>
+<div id="myModal1" class="modal fade" role="dialog">
+            <div class="modal-dialog .modal-dialog-centered  modal-lg ">
+
+              <!-- Modal content  1-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                  <!-- <p>Some text in the modal 1.</p> -->
+
+
+                  <form name="Form1" action="" method="POST" role="form">
+
+
+                    <div class="form-group">
+                      <label>I/C number<font color="red">*</font></label>
+                      <input class="form-control" placeholder="Enter Contact Number" maxlength="11" name="txtICNo" required=required>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Employee Name<font color="red">*</font></label>
+                      <input class="form-control" placeholder="Enter Name" name="txtFName" required=required>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Section</label>
+                      <input class="form-control" placeholder="Enter Section Name" name="txtSecName">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Designation</label>
+                      <input class="form-control" placeholder="Enter Designation" name="txtDesignation">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Email Address</label>
+                      <input type="email" class="form-control" placeholder="abcd@gmail.com" name="txtEmailAddress">
+                    </div>
+
+                    <div>
+                      <input type="radio" value="radio_group" name="home" />&nbsp Home
+                      &nbsp &nbsp &nbsp
+                      <input type="radio" value="radio_group" name="office" />&nbsp Office
+
+                    </div>
+
+                    <br><br>
+
+                    <button type="submit" class="btn btn-primary" name="bntSave">Save</button>
+
+                  </form>
+
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+<?php include "footer.php" ?>
