@@ -27,21 +27,65 @@
                        <div class="card mb-4">
                             <div class="card-header">
 
-                            <!-- Trigger the modal with a button -->
-                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add New </button>
+                            <!-- Trigger the modal with a button  1 -->    
+                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">Add New </button>
 
-                            <!-- Modal -->
-                             <div id="myModal" class="modal fade" role="dialog">
+                            <!-- Modal 1-->
+                             <div id="myModal1" class="modal fade" role="dialog">
                              <div class="modal-dialog .modal-dialog-centered  modal-lg ">
 
-                            <!-- Modal content-->
+                            <!-- Modal content  1-->
                              <div class="modal-content">
                              <div class="modal-header">
                              <button type="button" class="close" data-dismiss="modal">&times;</button>
                              <h4 class="modal-title">Modal Header</h4>
                              </div>
                              <div class="modal-body">
-                             <p>Some text in the modal.</p>
+                             <!-- <p>Some text in the modal 1.</p> -->
+                                
+
+                                      <form name="Form1" action="" method="POST" role="form">
+
+
+                                      <div class="form-group">
+                                      <label>I/C number<font color="red">*</font></label>
+                                      <input class="form-control" placeholder="Enter Contact Number" maxlength = "11" name="txtICNo" required=required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                      <label>Employee Name<font color="red">*</font></label>
+                                      <input class="form-control" placeholder="Enter Name" name="txtFName" required=required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                      <label>Section</label>
+                                      <input class="form-control" placeholder="Enter Section Name" name="txtSecName">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Designation</label>
+                                        <input class="form-control" placeholder="Enter Designation" name="txtDesignation">
+                                      </div>
+                                  
+                                    <div class="form-group">
+                                      <label>Email Address</label>
+                                      <input type="email" class="form-control" placeholder="abcd@gmail.com" name="txtEmailAddress">
+                                    </div>
+
+                                    <div>
+                                      <input type="radio" value="radio_group" name="home"/>&nbsp Home
+                                      &nbsp &nbsp &nbsp
+                                      <input type="radio" value="radio_group" name="office"/>&nbsp Office
+
+                                    </div>
+
+                                    <br><br>
+                                    
+                                    <button type="submit" class="btn btn-primary" name="bntSave">Save</button>
+                                              
+                                    </form>
+
+
                              </div>
                              <div class="modal-footer">
                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -51,6 +95,55 @@
                              </div>
                              </div>
 														
+
+                             <!-- Trigger the modal with a button  2 -->    
+                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">Update </button>
+
+                             <!-- Modal 2-->
+                             <div id="myModal2" class="modal fade" role="dialog">
+                             <div class="modal-dialog .modal-dialog-centered  modal-lg ">
+
+                            <!-- Modal content  2-->
+                             <div class="modal-content">
+                             <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                             <h4 class="modal-title">Modal Header</h4>
+                             </div>
+                             <div class="modal-body">
+                             <p>Some text in the modal 2.</p>
+                             </div>
+                             <div class="modal-footer">
+                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                             </div>
+                             </div>
+
+                             </div>
+                             </div>
+
+
+                             <!-- Trigger the modal with a button  3 -->    
+                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3">Delete </button>
+
+                             <!-- Modal 3 -->
+                             <div id="myModal3" class="modal fade" role="dialog">
+                             <div class="modal-dialog .modal-dialog-centered  modal-lg ">
+
+                            <!-- Modal content 3-->
+                             <div class="modal-content">
+                             <div class="modal-header">
+                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                             <h4 class="modal-title">Modal Header</h4>
+                             </div>
+                             <div class="modal-body">
+                             <p>Some text in the modal 3.</p>
+                             </div>
+                             <div class="modal-footer">
+                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                             </div>
+                             </div>
+
+                             </div>
+                             </div>
   <!-- <a class="btn btn-primary" data-toggle="collapse" href="#logchartdiv" role="button" aria-expanded="false" aria-controls="collapseExample" style="float:right;">
     Add
 	  </a>
@@ -72,13 +165,12 @@
 <div class="card-body">
 
 
-
                                 <div class="table-hover">
                                      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>S.No</th>
-												<th>Activity</th>
+											                        	<th>Activity</th>
                                                 <th>Section Weightage</th>
                                                 <th>Exctuted Qty in %</th>
                                                 <th>Contribution to overall Section Job completion%</th>
