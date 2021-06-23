@@ -5,11 +5,11 @@
 <div id="layoutSidenav_content">
   <main>
     <div class="container-fluid">
-      <h1 class="mt-4">Emergency Contacts</h1>
+      <h1 class="mt-4">All Contacts</h1>
       <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
         <?php if (isset($_GET['act'])) { ?>
-          <li class="breadcrumb-item"><a href="mech.php">Emergency </a></li>
+          <li class="breadcrumb-item"><a href="mech.php">Managers</a></li>
           <li class="breadcrumb-item active">
           <?php
           $query = $conn->query("SELECT * FROM `main_act` where `eno`='" . $_GET['act'] . "'");
@@ -17,16 +17,15 @@
           while ($row = $query->fetch_assoc()) {
             echo $row['act_name'];
           }
-        } else echo "<li class='breadcrumb-item active'>Emergency</a></li>";
+        } else echo "<li class='breadcrumb-item active'>Managers</a></li>";
           ?>
       </ol>
 
 
-      
-       
+     
         
         <div class="card mb-4">
-                <div class="card-header"><i class="fas fa-table mr-1"></i>All Contacts</div>
+                <div class="card-header"><i class="fas fa-table mr-1"></i>Contacts - Managers</div>
                 <div class="card-body">
                     <div class="table-responsive table-hover">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -108,7 +107,6 @@
   </footer>
 </div>
 </div>
-
 
 
 
@@ -237,7 +235,7 @@
 
                     <button type="submit" class="btn btn-primary" name="bntUpdate" value="update">Update</button>
                     <button type="submit" class="btn btn-primary" name="bntDelete" value="delete">Delete</button>
-                   
+                    
 
                   </form>
 
@@ -252,8 +250,7 @@
           </div>          
 
 
+
 <?php include "footer.php" ?>
-
-
 
 

@@ -36,7 +36,7 @@ CREATE TABLE `master` (
   `cat-1` text NOT NULL,
   `cat-2` text NOT NULL,
   `cat-3` text NOT NULL,
-  `section` text NOT NULL
+  `section` text NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

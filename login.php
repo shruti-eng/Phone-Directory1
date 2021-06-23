@@ -18,7 +18,7 @@ header("Location: incompatable.php");
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Login-MTA-20 Status Portal</title>
+        <title>Login-HWPM Telephone Directory</title>
         <link href="css/styles.css" rel="stylesheet" />
         <script src="js/all.min.js" crossorigin="anonymous"></script>
     </head>
@@ -30,7 +30,7 @@ header("Location: incompatable.php");
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">HWPM MTA-20 Portal</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">HWPM Telephone Directory</h3></div>
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     
 									<div class="card-body">
