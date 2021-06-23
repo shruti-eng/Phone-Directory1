@@ -5,14 +5,15 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Overall MTA Work Status (<span id=prog></span> Complete)&nbsp&nbsp<i class="fa fa-chart-line" aria-hidden="true" onclick="window.open('overallprogress.php','Job Progress', 'width=750, height=500');" style="cursor:pointer;"></i></h1>
+                        <!-- <h1 class="mt-4">Overall MTA Work Status (<span id=prog></span> Complete)&nbsp&nbsp<i class="fa fa-chart-line" aria-hidden="true" onclick="window.open('overallprogress.php','Job Progress', 'width=750, height=500');" style="cursor:pointer;"></i></h1> -->
+                        <h1 class="mt-4">Telephone Directory </h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Overall Status</li>
+                            <li class="breadcrumb-item active">HWP(M)</li>
                         </ol>
                         <div class="row"> 
                             <div class="col-xl col-md-6">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Mechanical-Process<h3 id="mech-prog"></h3></div>
+                                    <div class="card-body">View All<h3 id="mech-prog"></h3></div>
                                    
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="mech.php">View Details</a>
@@ -23,7 +24,7 @@
 
                             <div class="col-xl col-md-6">
                                 <div class="card bg-elec text-white mb-4">
-                                    <div class="card-body">Electrical-Process<h3 id="elec-prog"></h3></div>
+                                    <div class="card-body">Add New <h3 id="elec-prog"></h3></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="elec.php">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -32,7 +33,7 @@
                             </div>
 							                            <div class="col-xl col-md-6">
                                 <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Inst-Process<h3 id="inst-prog"></h3></div>
+                                    <div class="card-body">Update<h3 id="inst-prog"></h3></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="inst.php">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
@@ -41,7 +42,7 @@
                             </div>
 							<div class="col-xl col-md-6">
                                 <div class="card bg-isi text-white mb-4">
-                                    <div class="card-body">ISI<h3 id="isi-prog"></h3></div>
+                                    <div class="card-body">Delete<h3 id="isi-prog"></h3></div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <a class="small text-white stretched-link" href="isi.php">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>

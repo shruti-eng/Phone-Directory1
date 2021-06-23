@@ -8,7 +8,7 @@ session_unset();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>HWPM MTA-20 Status</title>
+    <title>HWPM Telephone Directory</title>
 	<link rel = "icon" href = "logo.png" type = "image/x-icon"> 
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
@@ -66,7 +66,7 @@ if ($conn->connect_error) die($conn->connect_error);
 
                         <a class="nav-link" href="index.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
-                            Overall Status
+                            Dashboard
                         </a>
                         <div class="sb-sidenav-menu-heading">Sectional Status</div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts">
