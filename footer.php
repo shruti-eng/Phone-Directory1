@@ -1,10 +1,6 @@
 		<script src="js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
         <script src="js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
-        <script src="js/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        
-       
         <script src="js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>

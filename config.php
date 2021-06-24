@@ -1,11 +1,7 @@
 <?php
-
-$dbhost = 'localhost';
-$dbname = 'tele';
-$username = 'root';
-$password = '';
-
-$connection = mysqli_connect($dbhost, $username, $password,$dbname );
-
-
+$db = "tele"; //New DB file placed in folder please check
+$hn = "127.0.0.1";
+$un = "root";
+$pw = "";
+$conn = new mysqli($hn, $un, $pw, $db);
 ?>

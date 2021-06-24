@@ -20,11 +20,7 @@ if (isset($_SESSION['app'])) {
     if ($_SESSION['app'] != "mta")
         session_unset();
 } else session_unset();
-$db = "tele"; //New DB file placed in folder please check
-$hn = "127.0.0.1";
-$un = "root";
-$pw = "";
-$conn = new mysqli($hn, $un, $pw, $db);
+require_once("config.php");
 if ($conn->connect_error) die($conn->connect_error);
 ?>
 
