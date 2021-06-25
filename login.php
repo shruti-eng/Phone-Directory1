@@ -46,7 +46,7 @@ if ($browsername == "Internet Explorer")
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox"><input class="custom-control-input" id="rem2" type="checkbox" name="rem" /><label class="custom-control-label" for="rem2">Remember password</label></div>
                                         </div>
-                                        <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><a class="small" href="password.html">Forgot Password?</a><a class="btn btn-primary" id="login2" href="index.php">Enter Without Login</a><a class="btn btn-primary" id="login" href="#">Login</a></div>
+                                        <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><a class="small" href="password.html">Forgot Password?</a><a class="btn btn-primary" id="login2" href="index11.php">Enter Without Login</a><a class="btn btn-primary" id="login" href="#">Login</a></div>
                                     </form>
                                 </div>
                                 <div class="card-footer text-center">
@@ -94,7 +94,7 @@ if ($browsername == "Internet Explorer")
                     if ($d == "Welcome") {
                         $temp = "";
                         $temp = "<?php
-                                    echo "index11.php";
+                                    echo "index1.php";
                                     ?>";
                         window.location = $temp;
                     } else alert("Login Failed Please retry");
