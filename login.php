@@ -94,7 +94,7 @@ if ($browsername == "Internet Explorer")
                     if ($d == "Welcome") {
                         $temp = "";
                         $temp = "<?php
-                                    echo "index1.php";
+                                    echo "index.php";
                                     ?>";
                         window.location = $temp;
                     } else alert("Login Failed Please retry");

@@ -1,5 +1,6 @@
 ﻿<?php
 //Use this page as template for all the other pages linked in the app through hyper links
+//session_start();
 ?>
 
 <!DOCTYPE html>
@@ -153,12 +154,19 @@
                                         <td></td>
                                         <td></td>
                                         <td>
-                                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalview"><i class="fa fa-eye"></i></button>
-                                            <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2"><i class="fa fa-edit"></i></button> -->
-                                            <!-- <button type="button" class="btn btn-danger" data-toggle="modal" href="index.php?update=<?php //echo $row['eno']; ?>" data-target="#myModal2"><i class="fa fa-edit"></i></button> -->
+                                            <?php if (isset($_SESSION['app'])) {
+                                                if ($_SESSION['app'] == 'tele') {
+                                            ?>
+                                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalview"><i class="fa fa-eye"></i></button>
+                                                    <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2"><i class="fa fa-edit"></i></button> -->
+                                                    <!-- <button type="button" class="btn btn-danger" data-toggle="modal" href="index.php?update=<?php //echo $row['eno']; 
+                                                                                                                                                    ?>" data-target="#myModal2"><i class="fa fa-edit"></i></button> -->
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal" href="index.php?update=<?php echo $row['eno']; ?>" data-target="#myModal2"><i class="fa fa-edit"></i></button>
 
-
-                                            <button type="button" class="btn btn-danger" data-toggle="modal" href="index.php?update=<?php echo $row['eno']; ?>"  data-target="#myModal2"><i class="fa fa-edit"></i></button>
+                                            <?php
+                                                }
+                                            }
+                                            ?>
 
                                         </td>
                                     <?php
@@ -206,14 +214,14 @@
 
 
 
-                
 
 
 
 
-                    
 
-                  
+
+
+
 
                 </form>
 
@@ -246,13 +254,13 @@
                 <!-- <p>Some text in the modal 1.</p> -->
 
 
-                <form id="update_form" name="Form_update"  action="" method="POST" role="form">
+                <form id="update_form" name="Form_update" action="" method="POST" role="form">
 
                     <div class="form-group">
                         <label>Emp.No <?php echo $row['eno'] ?></label>
-                        <input class="form-control"  maxlength="11" name="eno" value="<?php echo $row['eno'] ?> ">
-                         
-                         
+                        <input class="form-control" maxlength="11" name="eno" value="<?php echo $row['eno'] ?> ">
+
+
                     </div>
 
 
@@ -288,8 +296,8 @@
                         </select>
                     </div>
 
-                    
-                    
+
+
 
 
                 </form>
@@ -297,9 +305,9 @@
 
             </div>
             <div class="modal-footer">
-            <button  class="btn btn-primary" name="bntUpdate" value="update" id="update">Update</button>
-            <button  class="btn btn-primary" name="bntCancel" value="delete">Delete</button>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button class="btn btn-primary" name="bntUpdate" value="update" id="update">Update</button>
+                <button class="btn btn-primary" name="bntCancel" value="delete">Delete</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
 
@@ -398,7 +406,7 @@
 <script>
     $("#update").click(function() {
         $.ajax({
-            url: 'update.php?eno=<?php echo $row['eno']?>', 
+            url: 'update.php?eno=<?php echo $row['eno'] ?>',
             method: 'GET',
             data: $("#update_form").serialize(),
             success: function(data) {
@@ -411,4 +419,3 @@
         });
     })
 </script>
-

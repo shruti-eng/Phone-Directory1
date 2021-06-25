@@ -17,7 +17,7 @@
 </head>
 <?php
 if (isset($_SESSION['app'])) {
-    if ($_SESSION['app'] != "mta")
+    if ($_SESSION['app'] != "tele")
         session_unset();
 } else session_unset();
 require_once("config.php");

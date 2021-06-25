@@ -56,9 +56,7 @@ if($i==0)
 	$_SESSION['design']=$res['design'];
 	$_SESSION['section']=$res['section'];
 	$_SESSION['name']=$res['name'];
-	$_SESSION['app']="mta";
-
-	
+	$_SESSION['app']="tele";
 	$i++;
 	break;
 }
