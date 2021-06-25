@@ -153,8 +153,12 @@
                                         <td></td>
                                         <td></td>
                                         <td>
-                                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal1"><i class="fa fa-eye"></i></button>
-                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2"><i class="fa fa-edit"></i></button>
+                                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalview"><i class="fa fa-eye"></i></button>
+                                            <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2"><i class="fa fa-edit"></i></button> -->
+                                            <!-- <button type="button" class="btn btn-danger" data-toggle="modal" href="index.php?update=<?php //echo $row['eno']; ?>" data-target="#myModal2"><i class="fa fa-edit"></i></button> -->
+
+
+                                            <button type="button" class="btn btn-danger" data-toggle="modal" href="index.php?update=<?php echo $row['eno']; ?>"  data-target="#myModal2"><i class="fa fa-edit"></i></button>
 
                                         </td>
                                     <?php
@@ -183,14 +187,16 @@
 </div>
 
 
-<div id="myModal1" class="modal fade" role="dialog">
+<!-- View Modal -->
+
+<div id="myModalview" class="modal fade" role="dialog">
     <div class="modal-dialog .modal-dialog-centered  modal-lg ">
 
         <!-- Modal content  1-->
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+                <h4 class="modal-title">Details</h4>
             </div>
             <div class="modal-body">
                 <!-- <p>Some text in the modal 1.</p> -->
@@ -199,43 +205,15 @@
                 <form name="Form1" action="" method="POST" role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 
 
-                    <div class="form-group">
-                        <label>I/C number<font color="red">*</font></label>
-                        <input class="form-control" placeholder="Enter Contact Number" maxlength="11" name="icno" required=required>
-                    </div>
 
-                    <div class="form-group">
-                        <label>Employee Name<font color="red">*</font></label>
-                        <input class="form-control" placeholder="Enter Name" name="name" required=required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Designation</label>
-                        <input class="form-control" placeholder="Enter Designation" name="desig">
-                    </div>
+                
 
 
-                    <div class="form-group">
-                        <label>Section</label>
-                        <input class="form-control" placeholder="Enter Section Name" name="section">
-                    </div>
 
 
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" class="form-control" placeholder="abcd@gmail.com" name="email">
-                    </div>
+                    
 
-                    <div>
-                        <input type="radio" name="radio_group" value="home" />&nbsp Home
-                        &nbsp &nbsp &nbsp
-                        <input type="radio" name="radio_group" value="office" />&nbsp Office
-
-                    </div>
-
-                    <br><br>
-
-                    <button type="submit" class="btn btn-primary" name="bntSave">Save</button>
+                  
 
                 </form>
 
@@ -268,7 +246,14 @@
                 <!-- <p>Some text in the modal 1.</p> -->
 
 
-                <form name="Form1" action="" method="POST" role="form">
+                <form id="update_form" name="Form_update"  action="" method="POST" role="form">
+
+                    <div class="form-group">
+                        <label>Emp.No <?php echo $row['eno'] ?></label>
+                        <input class="form-control"  maxlength="11" name="eno" value="<?php echo $row['eno'] ?> ">
+                         
+                         
+                    </div>
 
 
                     <div class="form-group">
@@ -289,25 +274,22 @@
 
                     <div class="form-group">
                         <label>Section</label>
-                        <input class="form-control" placeholder="Enter Section Name" name="section">
+                        <select class="form-control" placeholder="Enter Section Name" name="section">
+                            <?php
+                            $query = $conn->query("SELECT * FROM `sections`");
+                            $len = 0;
+                            $len = $query->num_rows;
+                            if ($len != 0) {
+                                while ($row = $query->fetch_assoc()) {
+                                    echo "<option>" . $row['name'] . "</option>";
+                                }
+                            }
+                            ?>
+                        </select>
                     </div>
 
-                    <div class="form-group">
-                        <label>Email Address</label>
-                        <input type="email" class="form-control" placeholder="abcd@gmail.com" name="email">
-                    </div>
-
-                    <div>
-                        <input type="radio" name="radio_group" value="home" />&nbsp Home
-                        &nbsp &nbsp &nbsp
-                        <input type="radio" name="radio_group" value="office" />&nbsp Office
-
-                    </div>
-
-                    <br><br>
-
-                    <button type="submit" class="btn btn-primary" name="bntUpdate" value="update">Update</button>
-                    <button type="submit" class="btn btn-primary" name="bntCancel" value="delete">Delete</button>
+                    
+                    
 
 
                 </form>
@@ -315,7 +297,9 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button  class="btn btn-primary" name="bntUpdate" value="update" id="update">Update</button>
+            <button  class="btn btn-primary" name="bntCancel" value="delete">Delete</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
 
@@ -410,3 +394,21 @@
         });
     })
 </script>
+
+<script>
+    $("#update").click(function() {
+        $.ajax({
+            url: 'update.php?eno=<?php echo $row['eno']?>', 
+            method: 'GET',
+            data: $("#update_form").serialize(),
+            success: function(data) {
+                alert(data);
+                document.location.reload();
+            },
+            error: function() {
+                alert("something went wrong, contact admin");
+            }
+        });
+    })
+</script>
+
