@@ -160,7 +160,7 @@ session_start();
                                             ?>
                                                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalview" id="getUser" data-id="<?php echo $row['icno'] ?>"><i class="fa fa-eye"></i></button>
                                                    
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal"  data-target="#myModal2"  ><i class="fa fa-edit"></i></button>
+                                                    <button type="button" class="btn btn-danger" data-toggle="modal"  data-target="#myModal2"  id = "updatedetails" data-id="<?php echo $row['icno'] ?>"><i class="fa fa-edit"></i></button>
 
                                                     <?php } ?>
                                                             
@@ -232,67 +232,19 @@ session_start();
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
+                <h4 class="modal-title">Update/Delete</h4>
             </div>
+
             <div class="modal-body">
-                <!-- <p>Some text in the modal 1.</p> -->
+                <div id="modal-loader" style="display: none; text-align: center;">
+                    <!-- ajax loader -->
+                    <img src="ajax-loader.gif">
+                </div>
 
-
-                <form id="update_form" name="Form_update" action="" method="POST" role="form">
-
-                    <!-- <div class="form-group">
-                        <label>Emp.No <?php #echo $row['eno'] ?></label>
-                        <input class="form-control" maxlength="11" name="eno" value="">
-
-
-                    </div> -->
-
-
-                    <div class="form-group">
-                        <label>I/C number</label>
-
-                        
-                        
-                        <input class="form-control" placeholder="<?php //echo $row['icno'] ?>" maxlength="11" name="icno" required=required>
-                    </div>
-
-                    <div class="form-group">
-                        <label>Employee Name<font color="red">*</font></label>
-                        <input class="form-control" placeholder="Enter Name" name="name" required=required>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label>Designation</label>
-                        <input class="form-control" placeholder="Enter Designation" name="desig">
-                    </div>
-
-                    <div class="form-group">
-                        <label>Section</label>
-                        <select class="form-control" placeholder="Enter Section Name" name="section">
-                            <?php
-                            $query = $conn->query("SELECT * FROM `section_master`");
-                            $len = 0;
-                            $len = $query->num_rows;
-                            if ($len != 0) {
-                                while ($row = $query->fetch_assoc()) {
-                                    echo "<option>" . $row['section'] . "</option>";
-                                }
-                            }
-                            ?>
-                        </select>
-                    </div>
-
-
-
-
-
-
-
-                </form>
-
-
+                <!-- mysql data will be load here -->
+                <div id="dynamicc-content"></div>
             </div>
+            
             <div class="modal-footer">
                 <button class="btn btn-primary" name="bntUpdate" value="update" id="update">Update</button>
                 <button class="btn btn-primary" name="bntCancel" value="delete">Delete</button>
@@ -327,7 +279,7 @@ session_start();
 
                     <div class="form-group">
                         <label>I/C number<font color="red">*</font></label>
-                        <input class="form-control" placeholder="Enter Contact Number" maxlength="11" name="icno" required=required>
+                        <input class="form-control" placeholder="Enter IC Number" maxlength="11" name="icno" required=required>
                     </div>
 
                     <div class="form-group">
@@ -372,7 +324,7 @@ session_start();
 
 
 
-
+<!-- For Add -->
 
 <?php include "footer.php" ?>
 <script>
@@ -392,22 +344,7 @@ session_start();
     })
 </script>
 
-<script>
-    $("#update").click(function() {
-        $.ajax({
-            url: 'update.php?eno=<?php echo $row['eno'] ?>',
-            method: 'GET',
-            data: $("#update_form").serialize(),
-            success: function(data) {
-                alert(data);
-                document.location.reload();
-            },
-            error: function() {
-                alert("something went wrong, contact admin");
-            }
-        });
-    })
-</script>
+
 
 
 <!-- For View -->
@@ -445,6 +382,63 @@ $(document).on('click', '#getUser', function(e){
 });
 });
 
+
+</script>
+
+
+
+<script>
+    var uid = $(this).data('id'); 
+    $("#update").click(function() {
+        $.ajax({
+            url: 'update.php',
+            method: 'GET',
+            data:  $("#update_form").serialize(), 
+            data: 'id='+uid,
+            success: function(data) {
+                alert(data);
+                document.location.reload();
+            },
+            error: function() {
+                alert("something went wrong, contact admin");
+            }
+        });
+    })
+</script>
+
+<script>
+
+
+$(document).ready(function(){
+
+$(document).on('click', '#updatedetails', function(e){
+
+ e.preventDefault();
+
+ var uid = $(this).data('id'); // get id of clicked row
+
+ $('#dynamicc-content').html(''); // leave this div blank
+ $('#modal-loader').show();      // load ajax loader on button click
+
+ $.ajax({
+      url: 'updatedetails.php',
+      type: 'POST',
+      data: 'id='+uid,
+      dataType: 'html'
+ })
+ .done(function(data){
+      console.log(data); 
+      $('#dynamicc-content').html(''); // blank before load.
+      $('#dynamicc-content').html(data); // load here
+      $('#modal-loader').hide(); // hide loader  
+ })
+ .fail(function(){
+      $('#dynamicc-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
+      $('#modal-loader').hide();
+ });
+
+});
+});
 
 
 </script>
