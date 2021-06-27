@@ -1,5 +1,5 @@
 <?php
-$db = "tele"; //New DB file placed in folder please check
+$db = "telephone"; //New DB file placed in folder please check
 $hn = "127.0.0.1";
 $un = "root";
 $pw = "";

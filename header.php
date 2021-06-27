@@ -17,7 +17,7 @@
 </head>
 <?php
 if (isset($_SESSION['app'])) {
-    if ($_SESSION['app'] != "tele")
+    if ($_SESSION['app'] != "telephone")
         session_unset();
 } else session_unset();
 require_once("config.php");
@@ -66,17 +66,17 @@ if ($conn->connect_error) die($conn->connect_error);
                             Dashboard
                         </a>
                         <div class="sb-sidenav-menu-heading">Quick Links</div>
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="mech.php" >
                             <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
                             Emergency Numbers
 
                         </a>
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="managers.php" >
                             <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                             Management
 
                         </a>
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="#" >
                             <div class="sb-nav-link-icon"><i class="fas fa-id-card"></i></div>
                             Admin Building
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -91,35 +91,31 @@ if ($conn->connect_error) die($conn->connect_error);
                         </div>
 
 
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="mp.php" >
                             <div class="sb-nav-link-icon"><i class="fas fa-industry"></i></div>
                             Main-Plant
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
 
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="cpp.php" >
                             <div class="sb-nav-link-icon"><i class="fas fa-lightbulb"></i></div>
                             CPP
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
 
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="colony.php" >
                             <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                             Colony
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
 
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="#" >
                             <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
                             CISF
 
                         </a>
 
-                        <a class="nav-link collapsed" href="#" data-toggle="modal" data-target="#myModal" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
-                            Directory Administrator
-
-                        </a>
+                        
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
@@ -139,100 +135,4 @@ if ($conn->connect_error) die($conn->connect_error);
         </div>
 
 
-        <!-- Modal -->
-
-        <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog .modal-dialog-centered  modal-lg ">
-
-                <!-- Modal content  1-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Details</h4>
-                    </div>
-                    <div class="modal-body">
-                        <!-- <p>Some text in the modal 1.</p> -->
-
-
-                        <form name="Form1" action="" method="POST" role="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    <div class="bg-primary">
-        <div id="layoutAuthentication">
-        <div id="layoutAuthentication_content">
-            <main>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-5">
-                            <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                <div class="card-header">
-                                    <h3 class="text-center font-weight-light my-4">HWPM Telephone Directory</h3>
-                                </div>
-                                <div class="card-header">
-                                    <h3 class="text-center font-weight-light my-4">Admin Login</h3>
-                                </div>
-
-                                <div class="card-body">
-                                    <form>
-                                        <div class="form-group"><label class="small mb-1" for="un">User Name</label><input class="form-control" id="un" type="email" placeholder="Enter User Name " /></div>
-                                        <div class="form-group"><label class="small mb-1" for="pw">Password</label><input class="form-control" id="pw" type="password" placeholder="Enter Password" /></div>
-                                        <!-- <div class="form-group">
-                                            <div class="custom-control custom-checkbox"><input class="custom-control-input" id="rem2" type="checkbox" name="rem" /><label class="custom-control-label" for="rem2">Remember password</label></div>
-                                        </div> -->
-                                        <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><a class="small" href="password.html">Forgot Password?</a></div>
-                                        <!-- <br>   <div><a class="btn btn-primary" id="login2" href="index.php">Enter Without Login</a></div> -->
-                                         <br>  <div><a class="btn btn-primary" id="login" href="#">Login</a></div>
-                                    </form>
-                                </div>
-                               
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-        </div>
         
-    </div>
-
-    </div>
-
-             </form>
-
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" id="admin">Close</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-
-<script>
-
-$("#login").click(function() {
-            $.ajax({
-                url: 'adminauth.php',
-                data: {
-                    u: $("#un").val(),
-                    p: $("#pw").val(),
-                   
-                },
-                success: function(data) {
-                    alert(data);
-                    $d = data.substring(0, 7);
-                    if ($d == "Welcome") {
-                        $temp = "";
-                        $temp = "<?php
-                                    echo "index.php";
-                                    ?>";
-                        window.location = $temp;
-                    } else alert("Login Failed Please retry");
-                },
-                error: function() {
-                    alert("something went wrong, contact admin");
-                }
-            });
-        });
-
-
-</script>

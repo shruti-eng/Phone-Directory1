@@ -5,7 +5,7 @@
 <div id="layoutSidenav_content">
   <main>
     <div class="container-fluid">
-      <h1 class="mt-4">All Contacts</h1>
+      <h1 class="mt-4">Manager Contacts</h1>
       <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
         <?php if (isset($_GET['act'])) { ?>
