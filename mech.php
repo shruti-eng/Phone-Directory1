@@ -32,7 +32,7 @@
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>Emp.No</th>
+                                    <!-- <th>Emp.No</th> -->
                                     <th>IC No.</th>
                                     <th>Name</th>
                                     <th>Designation</th>
@@ -44,16 +44,16 @@
                             </thead>
 
                             <tbody>
-                                <?php $query = $conn->query("SELECT * FROM `master`");
+                                <?php $query = $conn->query("SELECT * FROM `employee`");
                                 if (!$query) die($conn->error);
                                 $x = 0;
                                 while ($row = $query->fetch_assoc()) {
                                     echo"<tr>";
                                     ?>
-                                    <td><?php echo $row['eno']?></td>
+                                    
                                     <td><?php echo $row['icno']?></td>
                                     <td><?php echo $row['name']?></td>
-                                    <td><?php echo $row['desig']?></td>
+                                    <td><?php echo $row['designation']?></td>
                                     <td><?php echo $row['section']?></td>
                                     <td></td>
                                     <td></td>
