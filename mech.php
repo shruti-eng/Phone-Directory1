@@ -58,6 +58,7 @@
                                     <td></td>
                                     <td></td>
                                     <td>
+                                    
                                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal1"><i class="fa fa-eye"></i></button>
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2"><i class="fa fa-edit"></i></button>
                                     

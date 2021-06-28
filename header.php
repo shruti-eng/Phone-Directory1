@@ -1,4 +1,5 @@
-<?php //session_start(); ?>
+<?php //session_start(); 
+?>
 <?php if (isset($_GET['logout']))
     session_unset();
 ?>
@@ -66,17 +67,17 @@ if ($conn->connect_error) die($conn->connect_error);
                             Dashboard
                         </a>
                         <div class="sb-sidenav-menu-heading">Quick Links</div>
-                        <a class="nav-link collapsed" href="mech.php" >
+                        <a class="nav-link collapsed" href="mech.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
                             Emergency Numbers
 
                         </a>
-                        <a class="nav-link collapsed" href="managers.php" >
+                        <a class="nav-link collapsed" href="managers.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                             Management
 
                         </a>
-                        <a class="nav-link collapsed" href="#" >
+                        <a class="nav-link collapsed" href="#">
                             <div class="sb-nav-link-icon"><i class="fas fa-id-card"></i></div>
                             Admin Building
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -91,31 +92,37 @@ if ($conn->connect_error) die($conn->connect_error);
                         </div>
 
 
-                        <a class="nav-link collapsed" href="mp.php" >
+                        <a class="nav-link collapsed" href="mp.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-industry"></i></div>
                             Main-Plant
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
 
-                        <a class="nav-link collapsed" href="cpp.php" >
+                        <a class="nav-link collapsed" href="cpp.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-lightbulb"></i></div>
                             CPP
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
 
-                        <a class="nav-link collapsed" href="colony.php" >
+                        <a class="nav-link collapsed" href="colony.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                             Colony
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
 
-                        <a class="nav-link collapsed" href="#" >
+                        <a class="nav-link collapsed" href="#">
                             <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
                             CISF
 
                         </a>
 
-                        
+                        <a class="nav-link collapsed" href="teleadmin.php">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            Telephone Admin
+
+                        </a>
+
+
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
@@ -133,6 +140,3 @@ if ($conn->connect_error) die($conn->connect_error);
                 </div>
             </nav>
         </div>
-
-
-        

@@ -168,14 +168,17 @@ session_start();
                                             include "get_res_phone.php";?>
                                         </td>
                                         <td>
+                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalview" id="getUser" data-id="<?php echo $row['icno'] ?>"><i class="fa fa-eye"></i></button>
                                         <?php if( isset($_SESSION['un']) && !empty($_SESSION['un']) && isset($_SESSION['pw']) && !empty($_SESSION['pw']) )
                                             {
                                             ?>
-                                                    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalview" id="getUser" data-id="<?php echo $row['icno'] ?>"><i class="fa fa-eye"></i></button>
+                                                    
                                                    
                                                     <button type="button" class="btn btn-danger" data-toggle="modal"  data-target="#myModal2"  id = "updatedetails" data-id="<?php echo $row['icno'] ?>"><i class="fa fa-edit"></i></button>
 
+
                                                     <?php } ?>
+                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalcomplaint" id="complaint" data-id="<?php echo $row['icno'] ?>">Raise complaint</button>            
                                                             
                                         </td>
                                     <?php
@@ -232,6 +235,41 @@ session_start();
     </div>
 </div>
 
+<!-- Complaint -->
+
+
+<div id="myModalcomplaint" class="modal fade" role="dialog">
+    <div class="modal-dialog .modal-dialog-centered  modal-lg ">
+
+        <!-- Modal content  2-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Register a Complaint</h4>
+            </div>
+            <div class="modal-body">
+                <!-- <p>Some text in the modal 1.</p> -->
+
+                <div id="modal-loader" style="display: none; text-align: center;">
+                    <!-- ajax loader
+                    <img src="ajax-loader.gif"> -->
+                </div>
+
+                <!-- mysql data will be load here -->
+                <div id="dynamiccc-content"></div>
+
+
+                
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" name="bntUpdate" value="complaint" id="comp">Raise</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
 
 
 
@@ -259,7 +297,7 @@ session_start();
             </div>
             
             <div class="modal-footer">
-                <button class="btn btn-primary" name="bntUpdate" value="update" id="update">Update</button>
+                <button class="btn btn-primary" name="bntUpdate" value="update" id="update" >Update</button>
                 <button class="btn btn-primary" name="bntCancel" value="delete">Delete</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
@@ -337,15 +375,41 @@ session_start();
 
 
 
-<!-- For Add -->
+
 
 <?php include "footer.php" ?>
+
+<!-- For Add -->
 <script>
     $("#add").click(function() {
         $.ajax({
             url: 'add.php',
             method: 'GET',
             data: $("#add_form").serialize(),
+            success: function(data) {
+                alert(data);
+                document.location.reload();
+            },
+            error: function() {
+                alert("something went wrong, contact admin");
+            }
+        });
+    })
+</script>
+
+
+
+
+<!-- Update -->
+
+<script>
+    var uid = $(this).data('id'); 
+    $("#update").click(function() {
+        $.ajax({
+            url: 'update.php',
+            method: 'GET',
+            data:  $("#update_form").serialize(), 
+            data: 'id='+uid,
             success: function(data) {
                 alert(data);
                 document.location.reload();
@@ -400,24 +464,8 @@ $(document).on('click', '#getUser', function(e){
 
 
 
-<script>
-    var uid = $(this).data('id'); 
-    $("#update").click(function() {
-        $.ajax({
-            url: 'update.php',
-            method: 'GET',
-            data:  $("#update_form").serialize(), 
-            data: 'id='+uid,
-            success: function(data) {
-                alert(data);
-                document.location.reload();
-            },
-            error: function() {
-                alert("something went wrong, contact admin");
-            }
-        });
-    })
-</script>
+
+<!-- Update -->
 
 <script>
 
@@ -448,6 +496,46 @@ $(document).on('click', '#updatedetails', function(e){
  .fail(function(){
       $('#dynamicc-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
       $('#modal-loader').hide();
+ });
+
+});
+});
+
+
+</script>
+
+
+<!-- Complaint -->
+
+<script>
+
+
+$(document).ready(function(){
+
+$(document).on('click', '#complaint', function(e){
+
+ e.preventDefault();
+
+ var uid = $(this).data('id'); // get id of clicked row
+
+ $('#dynamiccc-content').html(''); // leave this div blank
+//  $('#modal-loader').show();      // load ajax loader on button click
+
+ $.ajax({
+      url: 'complaint.php',
+      type: 'POST',
+      data: 'id='+uid,
+      dataType: 'html'
+ })
+ .done(function(data){
+      console.log(data); 
+      $('#dynamiccc-content').html(''); // blank before load.
+      $('#dynamiccc-content').html(data); // load here
+    //   $('#modal-loader').hide(); // hide loader  
+ })
+ .fail(function(){
+      $('#dynamiccc-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
+    //   $('#modal-loader').hide();
  });
 
 });

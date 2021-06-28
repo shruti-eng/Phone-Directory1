@@ -20,7 +20,7 @@ $name = $_GET['name'];
 $desig = $_GET['designation'];
 $section = $_GET['section'];
 // $query_string = " UPDATE `employee` SET  `name`= $name, `section`= $section, `designation`= $desig  WHERE `icno` ='".$id."' $id  ";
-$query_string = " SELECT * from `employee`   WHERE `icno` ='".$id."' $id  ";
+$query_string = " SELECT * from `phone_master`   WHERE `pno` ='".$id."' $id  ";
 $query = $conn->query($query_string);
 // $query = $DBcon->query($query_string);
 if (($query)) {

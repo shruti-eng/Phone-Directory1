@@ -9,12 +9,9 @@ if (isset($_REQUEST['id'])) {
     $num_rows = $query->num_rows;
     if ($num_rows != 0) {
         $row = $query->fetch_assoc();
-        $section=$row['section'];
-        
-    }
+        $section = $row['section'];
+    } else die("No ID selected");
 
-    else die("No ID selected");
-    
 ?>
 
     <div class="table-responsive">
@@ -30,7 +27,7 @@ if (isset($_REQUEST['id'])) {
 
     </div>
 
-    <form id="update_form" name="Form_update" action="" method="POST" role="form">
+    <form id="update_form" name="update_form" action="" method="POST" role="form">
 
         <div class="form-group">
             <label>Employee Name<font color="red">*</font></label>
@@ -52,10 +49,10 @@ if (isset($_REQUEST['id'])) {
                 $len = $query->num_rows;
                 if ($len != 0) {
                     while ($row = $query->fetch_assoc()) {
-                        echo "<option value='".$row['section']."'";
-                        if($row['section']==$section) 
-                        echo "selected='selected'";
-                        echo ">". $row['section'] . "</option>";
+                        echo "<option value='" . $row['section'] . "'";
+                        if ($row['section'] == $section)
+                            echo "selected='selected'";
+                        echo ">" . $row['section'] . "</option>";
                     }
                 }
                 ?>
@@ -63,7 +60,7 @@ if (isset($_REQUEST['id'])) {
         </div>
 
     </form>
-    
+
 
 
 
@@ -72,4 +69,4 @@ if (isset($_REQUEST['id'])) {
 
 
 <?php
-}
+} ?>
