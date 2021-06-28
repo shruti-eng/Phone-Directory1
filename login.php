@@ -35,16 +35,15 @@ if ($browsername == "Internet Explorer")
                                 <div class="card-header">
                                     <h3 class="text-center font-weight-light my-4">HWPM Telephone Directory</h3>
                                 </div>
-                                <div class="card-header">
-                                    <h3 class="text-center font-weight-light my-4">Login</h3>
-                                </div>
+                                
 
                                 <div class="card-body">
+                                    <div style="text-align:center;"><h5>Login</h5></div>
                                     <form>
                                         <div class="form-group"><label class="small mb-1" for="un">User Name</label><input class="form-control" id="un" type="email" placeholder="Enter User Name (Your IC No)" /></div>
                                         <div class="form-group"><label class="small mb-1" for="pw">Password</label><input class="form-control" id="pw" type="password" placeholder="Enter Password" /></div>
                                         <div class="form-group">
-                                            <div class="custom-control custom-checkbox"><input class="custom-control-input" id="rem2" type="checkbox" name="rem" /><label class="custom-control-label" for="rem2">Remember password</label></div>
+                                        <div class="custom-control custom-checkbox"><input class="custom-control-input" id="rem2" type="checkbox" name="rem" /><label class="custom-control-label" for="rem2">Remember password</label></div>
                                         </div>
                                         <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0"><a class="small" href="password.html">Forgot Password?</a><a class="btn btn-primary" id="login2" href="index.php">Enter Without Login</a><a class="btn btn-primary" id="login" href="#">Login</a></div>
                                     </form>
