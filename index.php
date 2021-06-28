@@ -152,8 +152,21 @@ session_start();
                                         <td><?php echo $row['name'] ?></td>
                                         <td><?php echo $row['designation'] ?></td>
                                         <td><?php echo $row['section'] ?></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>
+                                            <?php 
+                                           $_GET['icno']=$row['icno'];
+                                          
+                                            include "get_off_phone.php";
+                                            
+                                            ?>
+                                        </td>
+
+                                        <td>
+                                            <?php 
+                                            $_GET['icno']=$row['icno'];
+                                            
+                                            include "get_res_phone.php";?>
+                                        </td>
                                         <td>
                                         <?php if( isset($_SESSION['un']) && !empty($_SESSION['un']) && isset($_SESSION['pw']) && !empty($_SESSION['pw']) )
                                             {

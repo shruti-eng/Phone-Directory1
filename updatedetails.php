@@ -1,18 +1,20 @@
 <?php
 
-require_once 'dbconfig.php';
+require_once 'config.php';
 
 if (isset($_REQUEST['id'])) {
+    $id = $_REQUEST['id'];
+    $query_string = "SELECT * FROM `employee` where `icno`='" . $id . "'";
+    $query = $conn->query($query_string);
+    $num_rows = $query->num_rows;
+    if ($num_rows != 0) {
+        $row = $query->fetch_assoc();
+        $section=$row['section'];
+        
+    }
 
-    $id = intval($_REQUEST['id']);
-    $query = "SELECT * FROM employee WHERE icno =:id";
-    $stmt = $DBcon->prepare($query);
-    $stmt->execute(array(':id' => $id));
-
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    extract($row);
-
+    else die("No ID selected");
+    
 ?>
 
     <div class="table-responsive">
@@ -26,48 +28,48 @@ if (isset($_REQUEST['id'])) {
 
         </table>
 
-    </div>    
+    </div>
 
-            <form id="update_form" name="Form_update" action="" method="POST" role="form">
+    <form id="update_form" name="Form_update" action="" method="POST" role="form">
 
-                <div class="form-group">
-                    <label>Employee Name<font color="red">*</font></label>
-                    <input class="form-control" placeholder="Enter Name" name="name" required=required>
-                </div>
+        <div class="form-group">
+            <label>Employee Name<font color="red">*</font></label>
+            <input class="form-control" placeholder="Enter Name" name="name" required=required value="<?php echo $row['name']; ?>">
+        </div>
 
-                <div class="form-group">
-                    <label>Designation</label>
-                    <input class="form-control" placeholder="Enter Designation" name="desig">
-                </div>
+        <div class="form-group">
+            <label>Designation</label>
+            <input class="form-control" placeholder="Enter Designation" name="desig" value="<?php echo $row['designation']; ?>">
+        </div>
 
-                <div class="form-group">
-                    <label>Section</label>
-                    <select class="form-control" name="section">
-                        <?php
+        <div class="form-group">
+            <label>Section</label>
+            <select class="form-control" name="section" id="sec_edit">
+                <?php
 
-                        $query1 = "SELECT * FROM section_master";
-                        $stmt1 = $DBcon->prepare($query1);
-                        $len = 0;
-                        $row = $stmt1->fetch(PDO::FETCH_ASSOC);
-                        $len = $stmt1->num_rows;
-                        if ($len != 0) {
-                            while ($row) {
-                                echo "<option>" . $row['section'] . "</option>";
-                            }
-                        }
-                        ?>
-                    </select>
-                </div>
+                $query = $conn->query("SELECT * FROM `section_master`");
+                $len = 0;
+                $len = $query->num_rows;
+                if ($len != 0) {
+                    while ($row = $query->fetch_assoc()) {
+                        echo "<option value='".$row['section']."'";
+                        if($row['section']==$section) 
+                        echo "selected='selected'";
+                        echo ">". $row['section'] . "</option>";
+                    }
+                }
+                ?>
+            </select>
+        </div>
 
-            </form>
-
-
-            
-        
-
+    </form>
     
+
+
+
+
+
+
 
 <?php
 }
-
-
