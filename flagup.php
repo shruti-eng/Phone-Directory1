@@ -22,20 +22,21 @@ if (isset($_GET['id'])) {
 // $query_string = " UPDATE `employee` SET  `name`= $name, `section`= $section, `designation`= $desig  WHERE `icno` ='".$id."' $id  ";
 $query_string = " SELECT * from `phone_master` WHERE `pno` ='".$id."' $id";
 $query2 = $conn->query($query_string);
-$row2=$query2->fetch_assoc();
+// $row2=$query2->fetch_assoc();
 
-$num_rows = $query2->num_rows;
-    if ($num_rows != 0) {
-        while ($row2=$query2->fetch_assoc())
-        {
-            // if($row2['off']==1)
-            // echo $row2['pno'].", ";
-            $row['complaint'] = 1;
-        }
+// $num_rows = $query2->num_rows;
+//     if ($num_rows != 0) {
+//         while ($row2=$query2->fetch_assoc())
+//         {
+//             // if($row2['off']==1)
+//             // echo $row2['pno'].", ";
+//             $row['complaint'] = 1;
+//         }
         
-    }
+//     }
 // $query = $DBcon->query($query_string);
 if (($query2)) {
+    $row['complaint'] = 1;
     echo "Complaint Registered";
 } else {
     echo "Something went wrong";
@@ -44,6 +45,8 @@ if (($query2)) {
 }
 
 ?>
+
+
 
 
 

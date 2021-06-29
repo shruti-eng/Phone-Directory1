@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2021 at 01:16 PM
+-- Generation Time: Jun 29, 2021 at 04:48 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -40,8 +40,10 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`icno`, `name`, `designation`, `section`, `pno`) VALUES
-(2505, 'S K Gupta', 'SO/D', 'M-P', 0),
-(2649, 'Chaitanya A', 'SO/E', 'I-P', 0);
+(0, '', '', 'Accounts', 0),
+(2340, 'T. Mohana Kumar', 'SO/F', 'I-P', 4451),
+(2505, 'S K Gupta', 'SO/D', 'P-P', 4446),
+(2649, 'Chaitanya A', 'SO/E', 'I-P', 4549);
 
 -- --------------------------------------------------------
 
@@ -63,6 +65,15 @@ CREATE TABLE `phone_master` (
   `emergency` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `phone_master`
+--
+
+INSERT INTO `phone_master` (`pno`, `parallel_pno`, `callerid_phone`, `wireless_phone`, `zero_dialing`, `jbdetails`, `complaint_flag`, `icno`, `off`, `res`, `emergency`) VALUES
+(4446, 1, 0, 0, 0, 'test', 0, 2505, 1, 0, 0),
+(4451, 0, 0, 0, 0, 'test2', 0, 2340, 1, 0, 0),
+(4549, 0, 0, 0, 0, 'test1', 0, 2649, 1, 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -83,10 +94,19 @@ INSERT INTO `section_master` (`section`, `mgricno`) VALUES
 ('Admin', 0),
 ('Civil', 0),
 ('DPS', 0),
+('E-P', 0),
+('E-U', 0),
 ('Fire', 0),
+('HRD', 0),
 ('I-P', 0),
+('I-U', 0),
+('LAB', 0),
 ('M-P', 0),
-('Others', 0);
+('M-U', 0),
+('Others', 0),
+('P-P', 0),
+('P-U', 0),
+('SE', 0);
 
 --
 -- Indexes for dumped tables
