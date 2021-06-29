@@ -32,11 +32,12 @@ session_start();
                                     <tr>
                                         <!-- <th>Emp.No</th> -->
                                         <th>PNo.</th>
-                                        <th>IC No</th>
-                                        <th>Name</th>
+                                        <th>Assignee Name</th>
+                                        <th>Assignee Section</th>
 
-                                        <th>Designation</th>
-                                        <th>Section</th>
+                                        <th>JB Details</th>
+                                        <th>Complaint Exists</th>
+                                        <th>Zero Dialing</th>
                                         <!-- <th>Office</th>
                                         <th>Res</th> -->
                                         <th>Actions</th>
@@ -46,7 +47,7 @@ session_start();
                                 <tbody>
 
                                     <?php 
-                                    $query = $conn->query("SELECT `icno`,`name`,`designation`,`section` FROM `employee` ORDER BY `pno`");
+                                    $query = $conn->query("SELECT * FROM `phone_master`");
                                     if (!$query) die($conn->error);
                                     $x = 0;
                                     while ($row = $query->fetch_assoc()) {
@@ -54,39 +55,39 @@ session_start();
                                     ?>
 
                                         <td>
-                                            <?php
-                                            $_GET['icno'] = $row['icno'];
-
-                                            include "get_off_phone.php";
-
-                                            ?>
+                                        <?php echo $row['pno'] ?> 
                                         </td>
-                                        <td><?php echo $row['icno'] ?></td>
-                                        <td><?php echo $row['name'] ?></td>
-                                        <td><?php echo $row['designation'] ?></td>
-                                        <td><?php echo $row['section'] ?></td>
-
-
+                                        <td><?php 
+                                        $query_string2="SELECT * FROM employee where `icno`='".$row['icno']."'";
+                                        $query2=$conn->query($query_string2);
+                                        if($query2->num_rows>0)
+                                        {
+                                            $row2=$query2->fetch_assoc();
+                                            echo $row2['name'];
+                                        }
+                                        ?></td>
+                                        <td><?php if(isset($row2))
+                                        echo $row2['section']; ?></td>
+                                        <td><?php echo $row['jbdetails'] ?></td>
+                                        <td><?php if($row['complaint_flag']==1) 
+                                        {
+                                        echo "Yes";?>
+                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#Complaint_Modal" id="getUser" data-id="<?php echo $row['pno'] ?>"><i class="fa fa-eye"></i></button>
+                                       <?php }
+                                        else
+                                        echo "No";
+                                        ?></td>
+                                        <td>
+                                        <?php if($row['zero_dialing']==1) 
+                                        echo "Yes";
+                                        else
+                                        echo "No";
+                                        ?>
+                                        </td>
                                         <td>
                                         <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalview" id="getUser" data-id="<?php echo $row['icno'] ?>"><i class="fa fa-eye"></i></button>
                                         </td>
-                                        <td>
-                                            
-                                            <?php //if (isset($_SESSION['un']) && !empty($_SESSION['un']) && isset($_SESSION['pw']) && !empty($_SESSION['pw'])) {
-                                            ?>
-
-
-                                            <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2" id="updatedetails" data-id="<?php // echo $row['icno'] 
-                                                                                                                                                                        ?>"><i class="fa fa-edit"></i></button> -->
-
-
-                                            <?php //} 
-                                            ?>
-                                            <!-- <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalcomplaint" id="complaint" data-id="<?php // echo $row['icno'] 
-                                                                                                                                                                            ?>">Raise complaint</button> -->
-
-                                        </td>
-                                    <?php
+                                        <?php
                                         echo "</tr>";
                                         $x++;
                                     } ?>

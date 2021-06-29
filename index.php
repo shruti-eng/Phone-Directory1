@@ -397,34 +397,7 @@ session_start();
     })
 </script>
 
-
-
-
-<!-- Update -->
-
-<script>
-    var uid = $(this).data('id'); 
-    $("#update").click(function() {
-        $.ajax({
-            url: 'update.php',
-            method: 'GET',
-            data:  $("#update_form").serialize(), 
-            data: 'id='+uid,
-            success: function(data) {
-                alert(data);
-                document.location.reload();
-            },
-            error: function() {
-                alert("something went wrong, contact admin");
-            }
-        });
-    })
-</script>
-
-
-
-
-<!-- For View -->
+<!-- View -->
 <script>
 
 

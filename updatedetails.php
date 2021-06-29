@@ -33,6 +33,10 @@ if (isset($_REQUEST['id'])) {
             <label>Employee Name<font color="red">*</font></label>
             <input class="form-control" placeholder="Enter Name" name="name" required=required value="<?php echo $row['name']; ?>">
         </div>
+        <div class="form-group" style="display:none;">
+            <label>Employee ICno<font color="red">*</font></label>
+            <input class="form-control" id="update_icno" name="icno" required=required value="<?php echo $row['icno']; ?>">
+        </div>
 
         <div class="form-group">
             <label>Designation</label>
@@ -70,3 +74,22 @@ if (isset($_REQUEST['id'])) {
 
 <?php
 } ?>
+<script>
+    $("#update").click(function() {
+        var uid = $(this).data('id');
+        $.ajax({
+            url: 'update.php',
+            method: 'GET',
+            data: $("#update_form").serialize(),
+            
+
+            success: function(data) {
+                alert(data);
+                document.location.reload();
+            },
+            error: function() {
+                alert("something went wrong, contact admin");
+            }
+        });
+    })
+</script>
