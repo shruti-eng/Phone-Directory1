@@ -2,41 +2,23 @@
 
 require_once 'config.php';
 
-if (isset($_GET['id'])) {
+if (isset($_GET['pno'])) {
 
-    $id = $_GET['id'];
-
-     
-                                        $query_stringg="SELECT * FROM `complaint` where `pno`='".$id."'";
-                                        $queryy=$conn->query($query_stringg);
-                                        if($queryy->num_rows>0)
-                                        {
-                                            $row2=$query2->fetch_assoc();
-                                            $details =  $row2['complaint'];
-                                        }
-                                    
-
-    // $details = $_GET['complaint'];
-//
-$query_string5 = "UPDATE `phone_master` SET  `complaint_flag`= '1' WHERE `pno` ='".$id."'";
- $query_string6 = "UPDATE `complaint` SET  `details`= '".$details."' WHERE `pno` ='".$id."'";
-
-$query5 = $conn->query($query_string5);
-$query6 = $conn->query($query_string6);
+    $id = $_GET['pno'];
+    $details= $_GET['complaint'];
 
 
-if (($query5 && $queryy)) {
+    $query_stringg = "INSERT INTO `complaint` (`pno`, `details`, `active`, `action`,`technician`) values ('".$id."', '".$details."', '1', '', '')";
+    $queryy = $conn->query($query_stringg);
+    $query_stringg = "UPDATE `phone_master` SET `complaint_flag`='1' where `pno`='".$id."'";
+    $queryy2 = $conn->query($query_stringg);
     
-    echo "Complaint Registered";
-} else {
-    echo "Something went wrong";
-}
+    if(!$queryy||!$queryy2)
+    {
+        die("Database Error");
+    }
 
+        echo "Complaint Registered";
+    
 }
-
 ?>
-
-
-
-
-

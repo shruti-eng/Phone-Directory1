@@ -63,12 +63,12 @@ if (isset($_REQUEST['id'])) {
             </select>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display:none;">
             <label>Office</label>
             <input class="form-control"  name="off" value="<?php echo $row['pno']; ?>">
         </div>
 
-        <div class="form-group">
+        <div class="form-group" style="display:none;">
             <label>Residence</label>
             <input class="form-control"  name="res" >
         </div>

@@ -28,7 +28,7 @@ if (isset($_REQUEST['id'])) {
 
     </div> -->
 
-    <form id="update_form" name="Form_complaint" action="" method="POST" role="form">
+    <form id="update_form" name="Form_complaint">
 
         <div class="form-group">
             <label>Phone No.</label>
@@ -90,11 +90,11 @@ if (isset($_REQUEST['id'])) {
         $.ajax({
             url: 'flagup.php',
             method: 'GET',
-            data: $("#Form_complaint").serialize(),
+            data: $("#update_form").serialize(),
             // data: 'id='+uid,
             success: function(data) {
                 alert(data);
-                document.location.reload();
+                //document.location.reload();
             },
             error: function() {
                 alert("something went wrong, contact admin");
