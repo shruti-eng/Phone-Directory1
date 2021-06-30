@@ -15,7 +15,7 @@ try {
 if (isset($_REQUEST['id'])) {
 
     $id = intval($_REQUEST['id']);
-    $query = "SELECT * FROM employee WHERE icno =:id";
+    $query = "SELECT * FROM phone_master WHERE pno =:id";
     $stmt = $DBcon->prepare($query);
     $stmt->execute(array(':id' => $id));
 
@@ -30,40 +30,40 @@ if (isset($_REQUEST['id'])) {
         <table class="table table-striped table-bordered">
 
         <tr>
-                <th>IC No</th>
+                <th>Phone No</th>
                 <td><?php echo $id; ?></td>
             </tr>
             <tr>
-                <th>Name</th>
-                <td><?php echo $name; ?></td>
+                <th>Parallel Phones</th>
+                <td><?php echo $parallel_pno; ?></td>
             </tr>
             <tr>
-                <th>Designation</th>
-                <td><?php echo $designation; ?></td>
+                <th>Caller Id Phones</th>
+                <td><?php echo $callerid_phone; ?></td>
             </tr>
             <tr>
-                <th>Section</th>
-                <td><?php echo $section; ?></td>
+                <th>Zero Dialling Phones</th>
+                <td><?php echo $zero_dialing; ?></td>
             </tr>
             <tr>
-                <th>Office</th>
-                <td><?php  echo $pno; ?></td>
+                <th>JB Details</th>
+                <td><?php  echo $jbdetails; ?></td>
             </tr>
-
+<br>
             <tr>
-                <th>Residence</th>
-                <td></td>
+                <th>Assigned to IC No. </th>
+                <td><?php  echo $icno; ?></td>
             </tr>
 
             <!-- <tr>
                 <th>Mobile no.</th>
                 <td><?php //  echo $pno; ?></td>
             </tr> -->
-
+<!-- 
             <tr>
                 <th>Email Id</th>
-                <td><?php  echo $email; ?></td>
-            </tr>
+                <td><?php // echo $email; ?></td>
+            </tr> -->
 
 
             

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 29, 2021 at 04:48 AM
+-- Generation Time: Jun 30, 2021 at 04:59 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -24,6 +24,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `complaint`
+--
+
+CREATE TABLE `complaint` (
+  `pno` int(20) NOT NULL,
+  `details` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `employee`
 --
 
@@ -32,18 +43,18 @@ CREATE TABLE `employee` (
   `name` varchar(50) NOT NULL,
   `designation` varchar(50) NOT NULL,
   `section` varchar(50) NOT NULL,
-  `pno` int(20) NOT NULL
+  `pno` int(20) NOT NULL,
+  `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`icno`, `name`, `designation`, `section`, `pno`) VALUES
-(0, '', '', 'Accounts', 0),
-(2340, 'T. Mohana Kumar', 'SO/F', 'I-P', 4451),
-(2505, 'S K Gupta', 'SO/D', 'P-P', 4446),
-(2649, 'Chaitanya A', 'SO/E', 'I-P', 4549);
+INSERT INTO `employee` (`icno`, `name`, `designation`, `section`, `pno`, `email`) VALUES
+(2340, 'T. Mohana Kumar', 'SO/F', 'I-P', 4451, ''),
+(2505, 'S K Gupta', 'SO/D', 'P-P', 4446, 'skgupta@man.hwb.gov.in'),
+(2649, 'Chaitanya A', 'SO/E', 'I-P', 4549, 'chaitanya@man.hwb.gov.in');
 
 -- --------------------------------------------------------
 
@@ -71,7 +82,7 @@ CREATE TABLE `phone_master` (
 
 INSERT INTO `phone_master` (`pno`, `parallel_pno`, `callerid_phone`, `wireless_phone`, `zero_dialing`, `jbdetails`, `complaint_flag`, `icno`, `off`, `res`, `emergency`) VALUES
 (4446, 1, 0, 0, 0, 'test', 0, 2505, 1, 0, 0),
-(4451, 0, 0, 0, 0, 'test2', 0, 2340, 1, 0, 0),
+(4451, 0, 0, 0, 0, 'test2', 1, 2340, 1, 0, 0),
 (4549, 0, 0, 0, 0, 'test1', 0, 2649, 1, 0, 0);
 
 -- --------------------------------------------------------
@@ -111,6 +122,12 @@ INSERT INTO `section_master` (`section`, `mgricno`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `complaint`
+--
+ALTER TABLE `complaint`
+  ADD PRIMARY KEY (`pno`);
 
 --
 -- Indexes for table `employee`

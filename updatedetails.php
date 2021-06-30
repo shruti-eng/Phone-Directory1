@@ -63,6 +63,21 @@ if (isset($_REQUEST['id'])) {
             </select>
         </div>
 
+        <div class="form-group">
+            <label>Office</label>
+            <input class="form-control"  name="off" value="<?php echo $row['pno']; ?>">
+        </div>
+
+        <div class="form-group">
+            <label>Residence</label>
+            <input class="form-control"  name="res" >
+        </div>
+
+        <div class="form-group">
+            <label>Email Id</label>
+            <input class="form-control"  name="email" value="<?php echo $row['email']; ?>">
+        </div>
+
     </form>
 
 
@@ -79,6 +94,28 @@ if (isset($_REQUEST['id'])) {
         var uid = $(this).data('id');
         $.ajax({
             url: 'update.php',
+            method: 'GET',
+            data: $("#update_form").serialize(),
+            
+
+            success: function(data) {
+                alert(data);
+                document.location.reload();
+            },
+            error: function() {
+                alert("something went wrong, contact admin");
+            }
+        });
+    })
+</script>
+
+<!-- For Delete -->
+
+<script>
+    $("#delete").click(function() {
+        var uid = $(this).data('id');
+        $.ajax({
+            url: 'delete.php',
             method: 'GET',
             data: $("#update_form").serialize(),
             

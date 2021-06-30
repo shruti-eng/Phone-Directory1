@@ -178,7 +178,7 @@ session_start();
 
 
                                                     <?php } ?>
-                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalcomplaint" id="complaint" data-id="<?php echo $row['icno'] ?>">Raise complaint</button>            
+                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalcomplaint" id="complaintreg" data-id="<?php echo $row['pno'] ?>">Raise complaint</button>            
                                                             
                                         </td>
                                     <?php
@@ -221,7 +221,7 @@ session_start();
             <div class="modal-body">
                 <div id="modal-loader" style="display: none; text-align: center;">
                     <!-- ajax loader -->
-                    <img src="ajax-loader.gif">
+                    <!-- <img src="ajax-loader.gif"> -->
                 </div>
 
                 <!-- mysql data will be load here -->
@@ -262,7 +262,7 @@ session_start();
                 
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" name="bntUpdate" value="complaint" id="comp">Raise</button>
+                <button class="btn btn-primary" name="bntUpdate" value="complaint" id="complaint">Register</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -485,7 +485,7 @@ $(document).on('click', '#updatedetails', function(e){
 
 $(document).ready(function(){
 
-$(document).on('click', '#complaint', function(e){
+$(document).on('click', '#complaintreg', function(e){
 
  e.preventDefault();
 

@@ -5,38 +5,28 @@ require_once 'config.php';
 if (isset($_GET['id'])) {
 
     $id = $_GET['id'];
-    // $query = "SELECT * FROM employee WHERE icno =:id";
-    // $stmt = $DBcon->prepare($query);
-    // $stmt->execute(array(':id' => $id));
 
-    // $row = $stmt->fetch(PDO::FETCH_ASSOC);
+     
+                                        $query_stringg="SELECT * FROM `complaint` where `pno`='".$id."'";
+                                        $queryy=$conn->query($query_stringg);
+                                        if($queryy->num_rows>0)
+                                        {
+                                            $row2=$query2->fetch_assoc();
+                                            $details =  $row2['complaint'];
+                                        }
+                                    
 
-    // extract($row);
+    // $details = $_GET['complaint'];
+//
+$query_string5 = "UPDATE `phone_master` SET  `complaint_flag`= '1' WHERE `pno` ='".$id."'";
+ $query_string6 = "UPDATE `complaint` SET  `details`= '".$details."' WHERE `pno` ='".$id."'";
+
+$query5 = $conn->query($query_string5);
+$query6 = $conn->query($query_string6);
 
 
-
-// $icno = $id;
-// $name = $_GET['name'];
-// $desig = $_GET['designation'];
-// $section = $_GET['section'];
-// $query_string = " UPDATE `employee` SET  `name`= $name, `section`= $section, `designation`= $desig  WHERE `icno` ='".$id."' $id  ";
-$query_string = " SELECT * from `phone_master` WHERE `pno` ='".$id."' $id";
-$query2 = $conn->query($query_string);
-// $row2=$query2->fetch_assoc();
-
-// $num_rows = $query2->num_rows;
-//     if ($num_rows != 0) {
-//         while ($row2=$query2->fetch_assoc())
-//         {
-//             // if($row2['off']==1)
-//             // echo $row2['pno'].", ";
-//             $row['complaint'] = 1;
-//         }
-        
-//     }
-// $query = $DBcon->query($query_string);
-if (($query2)) {
-    $row['complaint'] = 1;
+if (($query5 && $queryy)) {
+    
     echo "Complaint Registered";
 } else {
     echo "Something went wrong";
