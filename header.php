@@ -86,18 +86,18 @@ if ($conn->connect_error) die($conn->connect_error);
 
 
                         <div class="sb-sidenav-menu-heading">Administration and Accounts</div>
-                        <a class="nav-link collapsed" href="#">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-id-card"></i></div>
                             Admin Building
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Static Navigation</a>
-                                    <a class="nav-link" href="#">Light Sidenav</a>
-                                </nav>
-                            </div>
-
+                        <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav"> 
+                            <a class="nav-link" href="#">Accounts</a>
+                            <a class="nav-link" href="#">Accounts</a>
+                            </nav>
+                        </div>
+                        
 
                         <a class="nav-link collapsed" href="mp.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-industry"></i></div>

@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2021 at 04:45 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Jul 01, 2021 at 03:37 PM
+-- Server version: 10.1.40-MariaDB
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -34,7 +35,7 @@ CREATE TABLE `complaint` (
   `active` int(11) NOT NULL,
   `action` text NOT NULL,
   `technician` text NOT NULL,
-  `updatedon` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp()
+  `updatedon` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -42,7 +43,10 @@ CREATE TABLE `complaint` (
 --
 
 INSERT INTO `complaint` (`eno`, `pno`, `details`, `active`, `action`, `technician`, `updatedon`) VALUES
-(10, 4451, 'not working', 0, 'done', 'abc', '0000-00-00 00:00:00');
+(10, 4451, 'not working', 0, 'done', 'abc', '0000-00-00 00:00:00'),
+(11, 4451, 'tewerwe', 1, '', '', '0000-00-00 00:00:00'),
+(12, 4451, 'asdfasdfadf', 1, '', '', '0000-00-00 00:00:00'),
+(13, 4451, 'test complaint-2', 1, '', '', '2021-07-01 04:41:53');
 
 -- --------------------------------------------------------
 
@@ -66,6 +70,7 @@ CREATE TABLE `employee` (
 
 INSERT INTO `employee` (`icno`, `name`, `designation`, `section`, `pno`, `email`, `mobile`) VALUES
 (2340, 'T. Mohana Kumar', 'SO/F', 'I-P', 4451, 'tmohanakumar@man.hwb.gov.in', 0),
+(2500, '', '', 'I-P', 0, '', 0),
 (2505, 'S K Gupta', 'SO/D', 'P-P', 4446, 'skgupta@man.hwb.gov.in', 0),
 (2649, 'Chaitanya A', 'SO/E', 'I-P', 4549, 'chaitanya@man.hwb.gov.in', 0);
 
@@ -95,7 +100,7 @@ CREATE TABLE `phone_master` (
 
 INSERT INTO `phone_master` (`pno`, `parallel_pno`, `callerid_phone`, `wireless_phone`, `zero_dialing`, `jbdetails`, `complaint_flag`, `icno`, `off`, `res`, `emergency`) VALUES
 (4446, 1, 0, 0, 0, 'test', 0, 2505, 1, 0, 0),
-(4451, 0, 0, 0, 0, 'test2', 0, 2340, 1, 0, 0),
+(4451, 0, 0, 0, 0, 'test2', 1, 2340, 1, 0, 0),
 (4549, 0, 0, 0, 0, 'test1', 0, 2649, 1, 0, 0);
 
 -- --------------------------------------------------------
@@ -168,7 +173,7 @@ ALTER TABLE `section_master`
 -- AUTO_INCREMENT for table `complaint`
 --
 ALTER TABLE `complaint`
-  MODIFY `eno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `eno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

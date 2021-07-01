@@ -21,7 +21,14 @@ if (isset($_REQUEST['id'])) {
 
         <div class="form-group" >
             <label>Complaint no.</label>
-            <input class="form-control" name="eno" value="<?php echo $row['eno']; ?>" readonly>
+            <select class="form-control" name="eno">
+
+            <?php while($row=$query->fetch_assoc())
+            {
+                ?>
+                <option value="<?php echo $row['eno']; ?>"><?php echo $row['eno']; ?></option>
+                <?php
+            }?>
         </div>
 
         <div class="form-group">
