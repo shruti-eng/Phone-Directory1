@@ -67,7 +67,7 @@ if ($conn->connect_error) die($conn->connect_error);
                             Dashboard
                         </a>
 
-                       <div class="sb-sidenav-menu-heading">Important Numbers</div>
+                        <div class="sb-sidenav-menu-heading">Important Numbers</div>
                         <a class="nav-link collapsed" href="mech.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
                             Emergency Numbers
@@ -85,49 +85,114 @@ if ($conn->connect_error) die($conn->connect_error);
 
 
 
-                        <div class="sb-sidenav-menu-heading">Administration and Accounts</div>
+                        <div class="sb-sidenav-menu-heading">Quick Links</div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts1" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-id-card"></i></div>
                             Admin Building
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav"> 
-                            <a class="nav-link" href="#">Accounts</a>
-                            <a class="nav-link" href="#">Accounts</a>
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="#">Administration</a>
+                                <a class="nav-link" href="#">Accounts</a>
                             </nav>
                         </div>
-                        
 
-                        <a class="nav-link collapsed" href="mp.php">
+
+                        <a class="nav-link collapsed" href="mp.php" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-industry"></i></div>
                             Main-Plant
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="#">Static Navigation</a>
-                                    <a class="nav-link" href="#">Light Sidenav</a>
-                                </nav>
-                            </div>
+                        <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="#">Production Process(PP)</a>
+                                <a class="nav-link" href="#">M & OM/IIS Section</a>
+                                <a class="nav-link" href="#">Mechanical Process(MP)</a>
+                                <a class="nav-link" href="#">Electrical Process(EP)</a>
+                                <a class="nav-link" href="#">Instrumentation Process(IP)</a>
+                                <a class="nav-link" href="#">Technical Servies</a>
+                                <a class="nav-link" href="#">HRD</a>
+                                <a class="nav-link" href="#">Chemical Lab</a>
+                                <a class="nav-link" href="#">Safety Section</a>
+                                <a class="nav-link" href="#">Occupations Health Centre</a>
+                                <a class="nav-link" href="#">Civil Site</a>
+                                <a class="nav-link" href="#">Fire Services</a>
+                            </nav>
+                        </div>
 
-                        <a class="nav-link collapsed" href="cpp.php">
+                        <a class="nav-link collapsed" href="cpp.php" data-toggle="collapse" data-target="#collapseLayouts3" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-lightbulb"></i></div>
                             CPP
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
+                        <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="#">Production Utilities(PU)</a>
+                                <a class="nav-link" href="#">Mechanical Utilities(MU)</a>
+                                <a class="nav-link" href="#">DRCC</a>
+                                <a class="nav-link" href="#">Electrical Utilities(EU)</a>
+                                <a class="nav-link" href="#">Instrumentation Utilities(IU)</a>
+                                <a class="nav-link" href="#">CPP Control Room</a>
 
-                        <a class="nav-link collapsed" href="colony.php">
+                            </nav>
+                        </div>
+
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
+                            DPS
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+
+                        <a class="nav-link collapsed" href="colony.php" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                             Colony
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
 
-                        <a class="nav-link collapsed" href="#">
+                        <div class="collapse" id="collapseLayouts5" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="#">Colony Security </a>
+                                <a class="nav-link" href="#">AEC School</a>
+                                <a class="nav-link" href="#">Estate Management Cell - Civil</a>
+                                <a class="nav-link" href="#">Estate Management Cell - Electrical</a>
+                                <a class="nav-link" href="#">HWPM Hospital</a>
+                            </nav>
+                        </div>
+
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts6" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
                             CISF
 
                         </a>
+
+                        <div class="sb-sidenav-menu-heading">Miscellaneous Services</div>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts6" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
+                           CHSS Panel Hospitals
+
+                        </a>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts6" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
+                            Heavy Water General Facilities(HWGF)
+
+                        </a>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts6" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
+                            NFC HWB Training School
+                        </a>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts6" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
+                            HWB and Other HWPs
+
+                        </a>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts6" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
+                            Mail users of HWPM
+
+                        </a>
+
+                        <div class="sb-sidenav-menu-heading">Telephone Admin</div>
 
                         <a class="nav-link collapsed" href="teleadmin.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
@@ -143,7 +208,7 @@ if ($conn->connect_error) die($conn->connect_error);
                         <div class="small">Logged in as:</div>
                         <?php echo $_SESSION['name']; ?>
                     <?php }
-                    
+
                     ?>
                 </div>
             </nav>

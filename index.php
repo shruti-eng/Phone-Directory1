@@ -177,7 +177,7 @@ session_start();
 
 
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2" id="updatedetails" data-id="<?php echo $row['icno'] ?>"><i class="fa fa-edit"></i></button>
-
+                                                <button type="button" class="btn btn-danger"   id="remove" data-id="<?php echo $row['icno'] ?>"><i class="fa fa-window-close" ></i></button>
 
                                             <?php } ?>
                                             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalcomplaint" id="complaintreg" data-id="<?php echo $row['pno'] ?>">Raise complaint</button>
@@ -291,7 +291,7 @@ session_start();
             <div class="modal-body">
                 <div id="modal-loader" style="display: none; text-align: center;">
                     <!-- ajax loader -->
-                    <img src="ajax-loader.gif">
+                    <!-- <img src="ajax-loader.gif"> -->
                 </div>
 
                 <!-- mysql data will be load here -->
@@ -444,21 +444,16 @@ session_start();
 </script>
 
 
-
-
 <!-- Update -->
 
 <script>
     $(document).ready(function() {
 
         $(document).on('click', '#updatedetails', function(e) {
-
             e.preventDefault();
-
-            var uid = $(this).data('id'); // get id of clicked row
-
-            $('#dynamicc-content').html(''); // leave this div blank
-            $('#modal-loader').show(); // load ajax loader on button click
+            var uid = $(this).data('id'); 
+            $('#dynamicc-content').html(''); 
+            $('#modal-loader').show(); 
 
             $.ajax({
                     url: 'updatedetails.php',
@@ -515,4 +510,26 @@ session_start();
 
         });
     });
+</script>
+
+<!-- For Delete -->
+
+<script>
+    $("#remove").click(function() {
+        var uid = $(this).data('id');
+        $.ajax({
+            url: 'delete.php',
+            method: 'GET',
+            data: $("#update_form").serialize(),
+
+
+            success: function(data) {
+                alert(data);
+                document.location.reload();
+            },
+            error: function() {
+                alert("something went wrong, contact admin");
+            }
+        });
+    })
 </script>

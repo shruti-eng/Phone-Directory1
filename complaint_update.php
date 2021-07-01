@@ -30,6 +30,8 @@ if (isset($_REQUEST['id'])) {
                 <?php
             }?>
         </div>
+        <br>
+        <br>
 
         <div class="form-group">
             <label>Phone no.</label>

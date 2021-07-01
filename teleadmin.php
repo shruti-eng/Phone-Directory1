@@ -155,7 +155,7 @@ session_start();
 
                     <div class="form-group">
                         <label>No. of Caller Id Phones</label>
-                        <input class="form-control" placeholder="Enter no. of Caller Id phones" name="caller_id">
+                        <input class="form-control" placeholder="Enter no. of Caller Id phones" name="callerid_phone">
                     </div>
 
                     <div class="form-group">
@@ -198,7 +198,7 @@ session_start();
                 </form>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" name="bntUpdate" value="add" id="add">Add</button>
+                <button class="btn btn-primary" name="bntUpdate" value="add" id="addphone">Add</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -408,9 +408,9 @@ session_start();
 
 <!-- For Add -->
 <script>
-    $("#add").click(function() {
+    $("#addphone").click(function() {
         $.ajax({
-            url: 'add.php',
+            url: 'addphone.php',
             method: 'GET',
             data: $("#add_form").serialize(),
             success: function(data) {

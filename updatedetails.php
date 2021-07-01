@@ -52,11 +52,11 @@ if (isset($_REQUEST['id'])) {
                 $len = 0;
                 $len = $query->num_rows;
                 if ($len != 0) {
-                    while ($row = $query->fetch_assoc()) {
-                        echo "<option value='" . $row['section'] . "'";
-                        if ($row['section'] == $section)
+                    while ($row2 = $query->fetch_assoc()) {
+                        echo "<option value='" . $row2['section'] . "'";
+                        if ($row2['section'] == $section)
                             echo "selected='selected'";
-                        echo ">" . $row['section'] . "</option>";
+                        echo ">" . $row2['section'] . "</option>";
                     }
                 }
                 ?>
@@ -65,22 +65,22 @@ if (isset($_REQUEST['id'])) {
 
         <div class="form-group" style="display:none;">
             <label>Office</label>
-            <input class="form-control"  name="off" value="<?php echo $row['pno']; ?>">
+            <input class="form-control" name="off" value="<?php echo $row['pno']; ?>">
         </div>
 
         <div class="form-group" style="display:none;">
             <label>Residence</label>
-            <input class="form-control"  name="res" >
+            <input class="form-control" name="res">
         </div>
 
         <div class="form-group">
             <label>Email Id</label>
-            <input class="form-control"  name="email" value="<?php echo $row['email']; ?>">
+            <input class="form-control" name="email" value="<?php echo $row['email']; ?>">
         </div>
 
         <div class="form-group">
             <label>Mobile Number</label>
-            <input class="form-control"  name="mobile" value="<?php echo $row['mobile']; ?>">
+            <input class="form-control" name="mobile" value="<?php echo $row['mobile']; ?>">
         </div>
 
     </form>
@@ -95,7 +95,7 @@ if (isset($_REQUEST['id'])) {
             url: 'update.php',
             method: 'GET',
             data: $("#update_form").serialize(),
-            
+
 
             success: function(data) {
                 alert(data);
@@ -108,24 +108,3 @@ if (isset($_REQUEST['id'])) {
     })
 </script>
 
-<!-- For Delete -->
-
-<script>
-    $("#delete").click(function() {
-        var uid = $(this).data('id');
-        $.ajax({
-            url: 'delete.php',
-            method: 'GET',
-            data: $("#update_form").serialize(),
-            
-
-            success: function(data) {
-                alert(data);
-                document.location.reload();
-            },
-            error: function() {
-                alert("something went wrong, contact admin");
-            }
-        });
-    })
-</script>
