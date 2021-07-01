@@ -78,13 +78,12 @@ if (isset($_REQUEST['id'])) {
             <input class="form-control"  name="email" value="<?php echo $row['email']; ?>">
         </div>
 
+        <div class="form-group">
+            <label>Mobile Number</label>
+            <input class="form-control"  name="mobile" value="<?php echo $row['mobile']; ?>">
+        </div>
+
     </form>
-
-
-
-
-
-
 
 
 <?php

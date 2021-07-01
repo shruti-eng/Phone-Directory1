@@ -65,6 +65,11 @@ if (isset($_REQUEST['id'])) {
                 <td><?php  echo $email; ?></td>
             </tr>
 
+            <tr>
+                <th>Mobile No.</th>
+                <td><?php  echo $mobile; ?></td>
+            </tr>
+
 
             
         </table>

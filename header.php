@@ -66,7 +66,8 @@ if ($conn->connect_error) die($conn->connect_error);
                             <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                             Dashboard
                         </a>
-                        <div class="sb-sidenav-menu-heading">Quick Links</div>
+
+                       <div class="sb-sidenav-menu-heading">Important Numbers</div>
                         <a class="nav-link collapsed" href="mech.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
                             Emergency Numbers
@@ -74,22 +75,28 @@ if ($conn->connect_error) die($conn->connect_error);
                         </a>
                         <a class="nav-link collapsed" href="managers.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                            Management
-
+                            Managers and Section Heads
                         </a>
+
+                        <a class="nav-link collapsed" href="#">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            Common User Numbers at Colony and Site
+                        </a>
+
+
+
+                        <div class="sb-sidenav-menu-heading">Administration and Accounts</div>
                         <a class="nav-link collapsed" href="#">
                             <div class="sb-nav-link-icon"><i class="fas fa-id-card"></i></div>
                             Admin Building
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse" id="collapseLayouts5" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-
-                                <a class="nav-link" href="#">Administration</a>
-                                <a class="nav-link" href="#">Accounts</a>
-
-                            </nav>
-                        </div>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="#">Static Navigation</a>
+                                    <a class="nav-link" href="#">Light Sidenav</a>
+                                </nav>
+                            </div>
 
 
                         <a class="nav-link collapsed" href="mp.php">
@@ -97,6 +104,12 @@ if ($conn->connect_error) die($conn->connect_error);
                             Main-Plant
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
+                        <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="#">Static Navigation</a>
+                                    <a class="nav-link" href="#">Light Sidenav</a>
+                                </nav>
+                            </div>
 
                         <a class="nav-link collapsed" href="cpp.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-lightbulb"></i></div>
@@ -130,12 +143,7 @@ if ($conn->connect_error) die($conn->connect_error);
                         <div class="small">Logged in as:</div>
                         <?php echo $_SESSION['name']; ?>
                     <?php }
-                    /* $query = $conn->query("SELECT * FROM `sec_act_log` ORDER BY `eno` DESC");
-                    if (!$query) die($conn->error);
-                    while ($row = $query->fetch_assoc()) {
-                        echo "<div class='small'>Last Update:<br> " . date("d-m-Y g:i:sA", strtotime($row['time'])) . "</div>";
-                        break;
-                    }*/
+                    
                     ?>
                 </div>
             </nav>

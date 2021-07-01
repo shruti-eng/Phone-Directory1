@@ -115,9 +115,12 @@ session_start();
 
                 <div class="card-header">
 
-                    <!-- Trigger the modal with a button  1 -->
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModaladd">Add New </button><br><br>
+                    
+                    <?php if (isset($_SESSION['un']) && !empty($_SESSION['un']) && isset($_SESSION['pw']) && !empty($_SESSION['pw'])) {
+                    ?>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModaladd">Add New </button><br><br>
 
+                    <?php } ?>
 
 
                     <div class="card-header"><i class="fas fa-table mr-1"></i>All Contacts</div>
@@ -153,33 +156,32 @@ session_start();
                                         <td><?php echo $row['designation'] ?></td>
                                         <td><?php echo $row['section'] ?></td>
                                         <td>
-                                            <?php 
-                                           $_GET['icno']=$row['icno'];
-                                          
+                                            <?php
+                                            $_GET['icno'] = $row['icno'];
+
                                             include "get_off_phone.php";
-                                            
+
                                             ?>
                                         </td>
 
                                         <td>
-                                            <?php 
-                                            $_GET['icno']=$row['icno'];
-                                            
-                                            include "get_res_phone.php";?>
+                                            <?php
+                                            $_GET['icno'] = $row['icno'];
+
+                                            include "get_res_phone.php"; ?>
                                         </td>
                                         <td>
-                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalview" id="getUser" data-id="<?php echo $row['icno'] ?>"><i class="fa fa-eye"></i></button>
-                                        <?php if( isset($_SESSION['un']) && !empty($_SESSION['un']) && isset($_SESSION['pw']) && !empty($_SESSION['pw']) )
-                                            {
+                                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalview" id="getUser" data-id="<?php echo $row['icno'] ?>"><i class="fa fa-eye"></i></button>
+                                            <?php if (isset($_SESSION['un']) && !empty($_SESSION['un']) && isset($_SESSION['pw']) && !empty($_SESSION['pw'])) {
                                             ?>
-                                                    
-                                                   
-                                                    <button type="button" class="btn btn-danger" data-toggle="modal"  data-target="#myModal2"  id = "updatedetails" data-id="<?php echo $row['icno'] ?>"><i class="fa fa-edit"></i></button>
 
 
-                                                    <?php } ?>
-                                        <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalcomplaint" id="complaintreg" data-id="<?php echo $row['pno'] ?>">Raise complaint</button>            
-                                                            
+                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2" id="updatedetails" data-id="<?php echo $row['icno'] ?>"><i class="fa fa-edit"></i></button>
+
+
+                                            <?php } ?>
+                                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalcomplaint" id="complaintreg" data-id="<?php echo $row['pno'] ?>">Raise complaint</button>
+
                                         </td>
                                     <?php
                                         echo "</tr>";
@@ -209,7 +211,7 @@ session_start();
 
 <!-- View Modal -->
 
-<div id="myModalview" class="modal fade" role="dialog"  >
+<div id="myModalview" class="modal fade" role="dialog">
     <div class="modal-dialog .modal-dialog-centered  modal-lg ">
 
         <!-- Modal content  1-->
@@ -259,7 +261,7 @@ session_start();
                 <div id="dynamiccc-content"></div>
 
 
-                
+
             </div>
             <div class="modal-footer">
                 <button class="btn btn-primary" name="bntUpdate" value="complaint" id="complaint">Register</button>
@@ -295,9 +297,9 @@ session_start();
                 <!-- mysql data will be load here -->
                 <div id="dynamicc-content"></div>
             </div>
-            
+
             <div class="modal-footer">
-                <button class="btn btn-primary" name="bntUpdate" value="update" id="update" >Update</button>
+                <button class="btn btn-primary" name="bntUpdate" value="update" id="update">Update</button>
                 <button class="btn btn-primary" name="bntCancel" value="delete">Delete</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
@@ -360,6 +362,16 @@ session_start();
                         </select>
                     </div>
 
+                    <div class="form-group">
+                        <label>Email Id</label>
+                        <input class="form-control" placeholder="Enter Email Address" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input class="form-control" placeholder="Enter Mobile Number" name="mobile">
+                    </div>
+
 
                 </form>
             </div>
@@ -399,40 +411,36 @@ session_start();
 
 <!-- View -->
 <script>
+    $(document).ready(function() {
 
+        $(document).on('click', '#getUser', function(e) {
 
-$(document).ready(function(){
+            e.preventDefault();
 
-$(document).on('click', '#getUser', function(e){
+            var uid = $(this).data('id'); // get id of clicked row
 
- e.preventDefault();
+            $('#dynamic-content').html(''); // leave this div blank
+            $('#modal-loader').show(); // load ajax loader on button click
 
- var uid = $(this).data('id'); // get id of clicked row
+            $.ajax({
+                    url: 'getuser.php',
+                    type: 'POST',
+                    data: 'id=' + uid,
+                    dataType: 'html'
+                })
+                .done(function(data) {
+                    console.log(data);
+                    $('#dynamic-content').html(''); // blank before load.
+                    $('#dynamic-content').html(data); // load here
+                    $('#modal-loader').hide(); // hide loader  
+                })
+                .fail(function() {
+                    $('#dynamic-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
+                    $('#modal-loader').hide();
+                });
 
- $('#dynamic-content').html(''); // leave this div blank
- $('#modal-loader').show();      // load ajax loader on button click
-
- $.ajax({
-      url: 'getuser.php',
-      type: 'POST',
-      data: 'id='+uid,
-      dataType: 'html'
- })
- .done(function(data){
-      console.log(data); 
-      $('#dynamic-content').html(''); // blank before load.
-      $('#dynamic-content').html(data); // load here
-      $('#modal-loader').hide(); // hide loader  
- })
- .fail(function(){
-      $('#dynamic-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
-      $('#modal-loader').hide();
- });
-
-});
-});
-
-
+        });
+    });
 </script>
 
 
@@ -441,78 +449,70 @@ $(document).on('click', '#getUser', function(e){
 <!-- Update -->
 
 <script>
+    $(document).ready(function() {
 
+        $(document).on('click', '#updatedetails', function(e) {
 
-$(document).ready(function(){
+            e.preventDefault();
 
-$(document).on('click', '#updatedetails', function(e){
+            var uid = $(this).data('id'); // get id of clicked row
 
- e.preventDefault();
+            $('#dynamicc-content').html(''); // leave this div blank
+            $('#modal-loader').show(); // load ajax loader on button click
 
- var uid = $(this).data('id'); // get id of clicked row
+            $.ajax({
+                    url: 'updatedetails.php',
+                    type: 'POST',
+                    data: 'id=' + uid,
+                    dataType: 'html'
+                })
+                .done(function(data) {
+                    console.log(data);
+                    $('#dynamicc-content').html(''); // blank before load.
+                    $('#dynamicc-content').html(data); // load here
+                    $('#modal-loader').hide(); // hide loader  
+                })
+                .fail(function() {
+                    $('#dynamicc-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
+                    $('#modal-loader').hide();
+                });
 
- $('#dynamicc-content').html(''); // leave this div blank
- $('#modal-loader').show();      // load ajax loader on button click
-
- $.ajax({
-      url: 'updatedetails.php',
-      type: 'POST',
-      data: 'id='+uid,
-      dataType: 'html'
- })
- .done(function(data){
-      console.log(data); 
-      $('#dynamicc-content').html(''); // blank before load.
-      $('#dynamicc-content').html(data); // load here
-      $('#modal-loader').hide(); // hide loader  
- })
- .fail(function(){
-      $('#dynamicc-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
-      $('#modal-loader').hide();
- });
-
-});
-});
-
-
+        });
+    });
 </script>
 
 
 <!-- Complaint -->
 
 <script>
+    $(document).ready(function() {
 
+        $(document).on('click', '#complaintreg', function(e) {
 
-$(document).ready(function(){
+            e.preventDefault();
 
-$(document).on('click', '#complaintreg', function(e){
+            var uid = $(this).data('id'); // get id of clicked row
 
- e.preventDefault();
+            $('#dynamiccc-content').html(''); // leave this div blank
+            //  $('#modal-loader').show();      // load ajax loader on button click
 
- var uid = $(this).data('id'); // get id of clicked row
+            $.ajax({
+                    url: 'complaint.php',
+                    type: 'POST',
+                    data: 'id=' + uid,
+                    dataType: 'html'
+                })
+                .done(function(data) {
+                    console.log(data);
+                    $('#dynamiccc-content').html(''); // blank before load.
+                    $('#dynamiccc-content').html(data); // load here
+                    //   $('#modal-loader').hide(); // hide loader  
+                })
+                .fail(function() {
+                    $('#dynamiccc-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
+                    //   $('#modal-loader').hide();
+                });
 
- $('#dynamiccc-content').html(''); // leave this div blank
-//  $('#modal-loader').show();      // load ajax loader on button click
-
- $.ajax({
-      url: 'complaint.php',
-      type: 'POST',
-      data: 'id='+uid,
-      dataType: 'html'
- })
- .done(function(data){
-      console.log(data); 
-      $('#dynamiccc-content').html(''); // blank before load.
-      $('#dynamiccc-content').html(data); // load here
-    //   $('#modal-loader').hide(); // hide loader  
- })
- .fail(function(){
-      $('#dynamiccc-content').html('<i class="glyphicon glyphicon-info-sign"></i> Something went wrong, Please try again...');
-    //   $('#modal-loader').hide();
- });
-
-});
-});
-
-
+        });
+    });
 </script>

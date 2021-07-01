@@ -91,10 +91,10 @@ if (isset($_REQUEST['id'])) {
             url: 'flagup.php',
             method: 'GET',
             data: $("#update_form").serialize(),
-            // data: 'id='+uid,
+           
             success: function(data) {
                 alert(data);
-                //document.location.reload();
+                document.location.reload();
             },
             error: function() {
                 alert("something went wrong, contact admin");

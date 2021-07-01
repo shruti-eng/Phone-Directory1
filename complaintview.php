@@ -20,7 +20,7 @@ if (isset($_REQUEST['id'])) {
 
         <table class="table table-striped table-bordered">
 
-        <tr>
+            <tr>
                 <th>Phone No</th>
                 <td><?php echo $id; ?></td>
             </tr>
@@ -30,17 +30,24 @@ if (isset($_REQUEST['id'])) {
             </tr>
 
             
+
+
+
+
             <!-- <tr>
                 <th>Designation</th>
-                <td><?php //echo $designation; ?></td>
+                <td><?php //echo $designation; 
+                    ?></td>
             </tr>
             <tr>
                 <th>Section</th>
-                <td><?php // echo $section; ?></td>
+                <td><?php // echo $section; 
+                    ?></td>
             </tr>
             <tr>
                 <th>Office</th>
-                <td><?php // echo $pno; ?></td>
+                <td><?php // echo $pno; 
+                    ?></td>
             </tr> -->
 
             <!-- <tr>
@@ -50,16 +57,18 @@ if (isset($_REQUEST['id'])) {
 
             <!-- <tr>
                 <th>Mobile no.</th>
-                <td><?php //  echo $pno; ?></td>
+                <td><?php //  echo $pno; 
+                    ?></td>
             </tr> -->
-<!-- 
+            <!-- 
             <tr>
                 <th>Email Id</th>
-                <td><?php  echo $email; ?></td>
+                <td><?php  //echo $email; 
+                    ?></td>
             </tr> -->
 
 
-            
+
         </table>
 
     </div>

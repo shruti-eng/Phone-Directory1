@@ -60,8 +60,11 @@
                                     <td>
                                     
                                     <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal1"><i class="fa fa-eye"></i></button>
+
+                                    <?php if (isset($_SESSION['un']) && !empty($_SESSION['un']) && isset($_SESSION['pw']) && !empty($_SESSION['pw'])) {
+                                      ?>
                                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2"><i class="fa fa-edit"></i></button>
-                                    
+                                    <?php } ?>
                                     </td>
                                     <?php
                                     echo "</tr>";

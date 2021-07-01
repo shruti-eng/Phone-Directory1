@@ -18,7 +18,6 @@ if (isset($_REQUEST['id'])) {
     $query = "SELECT * FROM phone_master WHERE pno =:id";
     $stmt = $DBcon->prepare($query);
     $stmt->execute(array(':id' => $id));
-
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
     extract($row);
@@ -53,7 +52,7 @@ if (isset($_REQUEST['id'])) {
             <tr>
                 <th>Assigned to IC No. </th>
                 <td><?php  echo $icno; ?></td>
-            </tr>
+</tr>
 
             <!-- <tr>
                 <th>Mobile no.</th>
