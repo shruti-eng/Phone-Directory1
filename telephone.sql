@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2021 at 10:30 AM
--- Server version: 10.1.40-MariaDB
--- PHP Version: 7.3.5
+-- Generation Time: Jul 01, 2021 at 04:45 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -35,7 +34,7 @@ CREATE TABLE `complaint` (
   `active` int(11) NOT NULL,
   `action` text NOT NULL,
   `technician` text NOT NULL,
-  `updatedon` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+  `updatedon` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -43,7 +42,7 @@ CREATE TABLE `complaint` (
 --
 
 INSERT INTO `complaint` (`eno`, `pno`, `details`, `active`, `action`, `technician`, `updatedon`) VALUES
-(1, 4451, 'test', 1, '', '', '0000-00-00 00:00:00');
+(10, 4451, 'not working', 0, 'done', 'abc', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -57,17 +56,18 @@ CREATE TABLE `employee` (
   `designation` varchar(50) NOT NULL,
   `section` varchar(50) NOT NULL,
   `pno` int(20) NOT NULL,
-  `email` varchar(100) NOT NULL
+  `email` varchar(100) NOT NULL,
+  `mobile` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`icno`, `name`, `designation`, `section`, `pno`, `email`) VALUES
-(2340, 'T. Mohana Kumar', 'SO/F', 'I-P', 4451, 'tmohanakumar@man.hwb.gov.in'),
-(2505, 'S K Gupta', 'SO/D', 'P-P', 4446, 'skgupta@man.hwb.gov.in'),
-(2649, 'Chaitanya A', 'SO/E', 'I-P', 4549, 'chaitanya@man.hwb.gov.in');
+INSERT INTO `employee` (`icno`, `name`, `designation`, `section`, `pno`, `email`, `mobile`) VALUES
+(2340, 'T. Mohana Kumar', 'SO/F', 'I-P', 4451, 'tmohanakumar@man.hwb.gov.in', 0),
+(2505, 'S K Gupta', 'SO/D', 'P-P', 4446, 'skgupta@man.hwb.gov.in', 0),
+(2649, 'Chaitanya A', 'SO/E', 'I-P', 4549, 'chaitanya@man.hwb.gov.in', 0);
 
 -- --------------------------------------------------------
 
@@ -95,7 +95,7 @@ CREATE TABLE `phone_master` (
 
 INSERT INTO `phone_master` (`pno`, `parallel_pno`, `callerid_phone`, `wireless_phone`, `zero_dialing`, `jbdetails`, `complaint_flag`, `icno`, `off`, `res`, `emergency`) VALUES
 (4446, 1, 0, 0, 0, 'test', 0, 2505, 1, 0, 0),
-(4451, 0, 0, 0, 0, 'test2', 1, 2340, 1, 0, 0),
+(4451, 0, 0, 0, 0, 'test2', 0, 2340, 1, 0, 0),
 (4549, 0, 0, 0, 0, 'test1', 0, 2649, 1, 0, 0);
 
 -- --------------------------------------------------------
@@ -168,7 +168,7 @@ ALTER TABLE `section_master`
 -- AUTO_INCREMENT for table `complaint`
 --
 ALTER TABLE `complaint`
-  MODIFY `eno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `eno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
