@@ -140,7 +140,7 @@ session_start();
                 <!-- <p>Some text in the modal 1.</p> -->
 
 
-                <form id="add_form" name="Form_add" action="" method="POST" role="form">
+                <form id="add_form" name="Form_add" action="" method="GET" role="form">
 
 
                     <div class="form-group">
@@ -198,7 +198,7 @@ session_start();
                 </form>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" name="bntUpdate" value="add" id="addphone">Add</button>
+                <button class="btn btn-primary" name="bntUpdate" value="addphone" id="addphone">Add</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -271,7 +271,7 @@ session_start();
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Update/Delete</h4>
+                <h4 class="modal-title">Update</h4>
             </div>
 
             <div class="modal-body">
@@ -423,3 +423,5 @@ session_start();
         });
     })
 </script>
+
+

@@ -2,18 +2,12 @@
 
 require_once 'config.php';
 
-if (isset($_GET['icno'])) {
+if (isset($_GET['id'])) {
 
-$id = $_GET['icno'];
-$name = $_GET['name'];
-$desig = $_GET['desig'];
-$section = $_GET['section'];
-$email=$_GET['email'];
+$id = $_GET['id'];
+$query_str = "DELETE FROM `employee` WHERE `icno`='".$id."'";
 
-$query_stringg = "DELETE FROM `employee` WHERE `icno` = '".$id."'";
-
-
-$query0 = $conn->query($query_stringg);
+$query0 = $conn->query($query_str);
 
 if (($query0)) {
     echo "Deleted";
@@ -21,6 +15,3 @@ if (($query0)) {
     echo "Something went wrong";
 }
 }
-?>
-
-

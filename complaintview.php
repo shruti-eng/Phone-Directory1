@@ -5,7 +5,7 @@ require_once 'config.php';
 
 if (isset($_REQUEST['id'])) {
     $id = $_REQUEST['id'];
-    $query_string = "SELECT * FROM `complaint` where `pno`='" . $id . "'";
+    $query_string = "SELECT * FROM `complaint` where `pno`='" . $id . "' and `active`='1'";
     $query = $conn->query($query_string);
     $num_rows = $query->num_rows; ?>
     <div class="table-responsive">

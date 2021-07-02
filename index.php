@@ -115,7 +115,7 @@ session_start();
 
                 <div class="card-header">
 
-                    
+
                     <?php if (isset($_SESSION['un']) && !empty($_SESSION['un']) && isset($_SESSION['pw']) && !empty($_SESSION['pw'])) {
                     ?>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModaladd">Add New </button><br><br>
@@ -177,7 +177,7 @@ session_start();
 
 
                                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2" id="updatedetails" data-id="<?php echo $row['icno'] ?>"><i class="fa fa-edit"></i></button>
-                                                <button type="button" class="btn btn-danger"   id="remove" data-id="<?php echo $row['icno'] ?>"><i class="fa fa-window-close" ></i></button>
+                                                <button type="button" class="btn btn-danger remove_button" id="remove"  data-id="<?php echo $row['icno'] ?>"><i class="fa fa-window-close"></i></button>
 
                                             <?php } ?>
                                             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModalcomplaint" id="complaintreg" data-id="<?php echo $row['pno'] ?>">Raise complaint</button>
@@ -285,7 +285,7 @@ session_start();
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Update/Delete</h4>
+                <h4 class="modal-title">Update</h4>
             </div>
 
             <div class="modal-body">
@@ -300,7 +300,7 @@ session_start();
 
             <div class="modal-footer">
                 <button class="btn btn-primary" name="bntUpdate" value="update" id="update">Update</button>
-                <button class="btn btn-primary" name="bntCancel" value="delete">Delete</button>
+               <!-- <button class="btn btn-primary" name="bntCancel" value="delete">Delete</button> -->
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -451,9 +451,9 @@ session_start();
 
         $(document).on('click', '#updatedetails', function(e) {
             e.preventDefault();
-            var uid = $(this).data('id'); 
-            $('#dynamicc-content').html(''); 
-            $('#modal-loader').show(); 
+            var uid = $(this).data('id');
+            $('#dynamicc-content').html('');
+            $('#modal-loader').show();
 
             $.ajax({
                     url: 'updatedetails.php',
@@ -515,14 +515,13 @@ session_start();
 <!-- For Delete -->
 
 <script>
-    $("#remove").click(function() {
+    $(".remove_button").click(function() {
         var uid = $(this).data('id');
         $.ajax({
             url: 'delete.php',
             method: 'GET',
-            data: $("#update_form").serialize(),
-
-
+        // data: $("#update_form").serialize(),
+            data: 'id=' + uid,
             success: function(data) {
                 alert(data);
                 document.location.reload();
