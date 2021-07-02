@@ -10,7 +10,7 @@ $desig = $_GET['desig'];
 $section = $_GET['section'];
 $email=$_GET['email'];
 
-$query_stringg = "DELETE FROM `employee` WHERE `icno` = $id";
+$query_stringg = "DELETE FROM `employee` WHERE `icno` = '".$id."'";
 
 
 $query0 = $conn->query($query_stringg);

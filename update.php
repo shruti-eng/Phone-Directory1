@@ -8,7 +8,7 @@ $name = $_GET['name'];
 $desig = $_GET['desig'];
 $section = $_GET['section'];
 $email=$_GET['email'];
-$query_string3 = "UPDATE `employee` SET  `name`= '".$name."', `section`= '".$section."', `designation`= '".$desig."', `email`='".$email."'  WHERE `icno` ='".$id."'";
+$query_string3 = "UPDATE `employee` SET  `name`= '".$name."', `section`= '".$section."', `designation`= '".$desig."', `email`='".$email."'  WHERE  `icno` ='".$id."'";
 $query3 = $conn->query($query_string3);
 
 if (($query3)) {
