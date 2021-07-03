@@ -143,7 +143,7 @@ CREATE TABLE `phone_master` (
   `callerid_phone` int(10) NOT NULL,
   `wireless_phone` int(10) NOT NULL,
   `zero_dialing` int(10) NOT NULL,
-  `jbdetails` text NOT NULL DEFAULT 'NA',
+  `jbdetails` text NOT NULL,
   `complaint_flag` tinyint(1) NOT NULL DEFAULT 0,
   `icno` int(10) NOT NULL,
   `off` tinyint(1) NOT NULL,

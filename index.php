@@ -46,7 +46,7 @@ session_start();
                             <h5>Main Plant</h5>
                         </div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="mp.php">View Details</a>
+                            <a class="small text-white stretched-link" href="#">View Details</a>
                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
@@ -356,6 +356,54 @@ session_start();
                             if ($len != 0) {
                                 while ($row = $query->fetch_assoc()) {
                                     echo "<option>" . $row['section'] . "</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category-1</label>
+                        <select class="form-control" placeholder="Choose Category 1" name="cat1">
+                            <?php
+                            $query = $conn->query("SELECT * FROM `category_master`");
+                            $len = 0;
+                            $len = $query->num_rows;
+                            if ($len != 0) {
+                                while ($row = $query->fetch_assoc()) {
+                                    echo "<option value='".$row['eno']."'>" . $row['cname'] . "</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category-2</label>
+                        <select class="form-control" placeholder="Choose Category 2" name="cat2">
+                            <?php
+                            $query = $conn->query("SELECT * FROM `category_master`");
+                            $len = 0;
+                            $len = $query->num_rows;
+                            if ($len != 0) {
+                                while ($row = $query->fetch_assoc()) {
+                                    echo "<option value='".$row['eno']."'>" . $row['cname'] . "</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category-3</label>
+                        <select class="form-control" placeholder="Choose Category 3" name="cat3">
+                            <?php
+                            $query = $conn->query("SELECT * FROM `category_master`");
+                            $len = 0;
+                            $len = $query->num_rows;
+                            if ($len != 0) {
+                                while ($row = $query->fetch_assoc()) {
+                                    echo "<option value='".$row['eno']."'>" . $row['cname'] . "</option>";
                                 }
                             }
                             ?>

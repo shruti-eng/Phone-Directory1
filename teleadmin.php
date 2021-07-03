@@ -96,6 +96,11 @@ session_start();
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalview" id="getUser" data-id="<?php echo $row['pno'] ?>"><i class="fa fa-eye"></i></button>
+
+                                            <?php if (isset($_SESSION['un']) && !empty($_SESSION['un']) && isset($_SESSION['pw']) && !empty($_SESSION['pw'])) {
+                                            ?>                                  
+                                                <button type="button" class="btn btn-danger deletephone" id="deletephone"  data-id="<?php echo $row['pno'] ?>"><i class="fa fa-window-close"></i></button>
+                                            <?php } ?>
                                         </td>
                                     <?php
                                         echo "</tr>";
@@ -188,6 +193,54 @@ session_start();
                             if ($len != 0) {
                                 while ($row = $query->fetch_assoc()) {
                                     echo "<option>" . $row['section'] . "</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>    
+                     
+                    <div class="form-group">
+                        <label>Category-1</label>
+                        <select class="form-control" placeholder="Choose Category 1" name="cat1">
+                            <?php
+                            $query = $conn->query("SELECT * FROM `category_master`");
+                            $len = 0;
+                            $len = $query->num_rows;
+                            if ($len != 0) {
+                                while ($row = $query->fetch_assoc()) {
+                                    echo "<option value='".$row['eno']."'>" . $row['cname'] . "</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category-2</label>
+                        <select class="form-control" placeholder="Choose Category 2" name="cat2">
+                            <?php
+                            $query = $conn->query("SELECT * FROM `category_master`");
+                            $len = 0;
+                            $len = $query->num_rows;
+                            if ($len != 0) {
+                                while ($row = $query->fetch_assoc()) {
+                                    echo "<option value='".$row['eno']."'>" . $row['cname'] . "</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category-3</label>
+                        <select class="form-control" placeholder="Choose Category 3" name="cat3">
+                            <?php
+                            $query = $conn->query("SELECT * FROM `category_master`");
+                            $len = 0;
+                            $len = $query->num_rows;
+                            if ($len != 0) {
+                                while ($row = $query->fetch_assoc()) {
+                                    echo "<option value='".$row['eno']."'>" . $row['cname'] . "</option>";
                                 }
                             }
                             ?>
@@ -425,3 +478,21 @@ session_start();
 </script>
 
 
+<script>
+    $(".deletephone").click(function() {
+        var uid = $(this).data('id');
+        $.ajax({
+            url: 'deletephone.php',
+            method: 'GET',
+        // data: $("#update_form").serialize(),
+            data: 'id=' + uid,
+            success: function(data) {
+                alert(data);
+                document.location.reload();
+            },
+            error: function() {
+                alert("something went wrong, contact admin");
+            }
+        });
+    })
+</script>

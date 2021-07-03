@@ -63,6 +63,56 @@ if (isset($_REQUEST['id'])) {
             </select>
         </div>
 
+
+        <div class="form-group">
+                        <label>Category-1</label>
+                        <select class="form-control" placeholder="Choose Category 1" name="cat1">
+                            <?php
+                            $query = $conn->query("SELECT * FROM `category_master`");
+                            $len = 0;
+                            $len = $query->num_rows;
+                            if ($len != 0) {
+                                while ($row = $query->fetch_assoc()) {
+                                    echo "<option value='".$row['eno']."'>" . $row['cname'] . "</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Category-2</label>
+                        <select class="form-control" placeholder="Choose Category 2" name="cat2">
+                            <?php
+                            $query = $conn->query("SELECT * FROM `category_master`");
+                            $len = 0;
+                            $len = $query->num_rows;
+                            if ($len != 0) {
+                                while ($row = $query->fetch_assoc()) {
+                                    echo "<option value='".$row['eno']."'>" . $row['cname'] . "</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>
+
+                     <div class="form-group">
+                        <label>Category-3</label>
+                        <select class="form-control" placeholder="Choose Category 3" name="cat3">
+                            <?php
+                            $query = $conn->query("SELECT * FROM `category_master`");
+                            $len = 0;
+                            $len = $query->num_rows;
+                            if ($len != 0) {
+                                while ($row = $query->fetch_assoc()) {
+                                    echo "<option value='".$row['eno']."'>" . $row['cname'] . "</option>";
+                                }
+                            }
+                            ?>
+                        </select>
+                    </div>            
+
+
         <div class="form-group" style="display:none;">
             <label>Office</label>
             <input class="form-control" name="off" value="<?php echo $row['pno']; ?>">
@@ -75,12 +125,16 @@ if (isset($_REQUEST['id'])) {
 
         <div class="form-group">
             <label>Email Id</label>
-            <input class="form-control" name="email" value="<?php echo $row['email']; ?>">
+           <?php $query_string = "SELECT * FROM `employee` where `icno`='" . $id . "'";
+            $query = $conn->query($query_string);
+            if ($num_rows != 0) {
+                $row = $query->fetch_assoc();} ?>
+            <input class="form-control" name="email" placeholder="Enter Email Id" value="<?php echo $row['email']; ?>">
         </div>
 
         <div class="form-group">
             <label>Mobile Number</label>
-            <input class="form-control" name="mobile" value="<?php echo $row['mobile']; ?>">
+            <input class="form-control" name="mobile" placeholder="Enter Mobile Number" value="<?php echo $row['mobile']; ?>">
         </div>
 
     </form>

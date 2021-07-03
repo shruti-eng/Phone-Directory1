@@ -63,18 +63,18 @@ if ($conn->connect_error) die($conn->connect_error);
                     <div class="nav">
 
                         <a class="nav-link" href="index.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
                             Dashboard
                         </a>
 
                         <div class="sb-sidenav-menu-heading">Important Numbers</div>
-                        <a class="nav-link collapsed" href="mech.php">
+                        <a class="nav-link collapsed" href="emergency.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
                             Emergency Numbers
 
                         </a>
                         <a class="nav-link collapsed" href="managers.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-briefcase"></i></div>
                             Managers and Section Heads
                         </a>
 
@@ -93,24 +93,24 @@ if ($conn->connect_error) die($conn->connect_error);
                         </a>
                         <div class="collapse" id="collapseLayouts1" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="#">Administration</a>
-                                <a class="nav-link" href="#">Accounts</a>
+                                <a class="nav-link" href="administration.php">Administration</a>
+                                <a class="nav-link" href="accounts.php">Accounts</a>
                             </nav>
                         </div>
 
 
-                        <a class="nav-link collapsed" href="mp.php" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts2" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-industry"></i></div>
                             Main-Plant
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="#">Production Process(PP)</a>
+                                <a class="nav-link" href="pp.php">Production Process(PP)</a>
                                 <a class="nav-link" href="#">M & OM/IIS Section</a>
                                 <a class="nav-link" href="#">Mechanical Process(MP)</a>
                                 <a class="nav-link" href="#">Electrical Process(EP)</a>
-                                <a class="nav-link" href="#">Instrumentation Process(IP)</a>
+                                <a class="nav-link" href="ip.php">Instrumentation Process(IP)</a>
                                 <a class="nav-link" href="#">Technical Servies</a>
                                 <a class="nav-link" href="#">HRD</a>
                                 <a class="nav-link" href="#">Chemical Lab</a>
@@ -168,34 +168,55 @@ if ($conn->connect_error) die($conn->connect_error);
 
                         <div class="sb-sidenav-menu-heading">Miscellaneous Services</div>
                         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts6" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-clinic-medical"></i></div>
                            CHSS Panel Hospitals
-
+                           <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts6" aria-expanded="false" aria-controls="collapseLayouts">
+
+                        <div class="collapse" id="collapseLayouts6" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="#">Ayurvedic & Homeopathy </a>
+                                <a class="nav-link" href="#">Allopathy</a>
+                                <a class="nav-link" href="#">Super Speciality Hospitals at Hyd</a>
+                            </nav>
+                        </div>
+
+
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts7" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
                             Heavy Water General Facilities(HWGF)
 
                         </a>
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts6" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts8" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
                             NFC HWB Training School
                         </a>
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts6" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts9" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
                             HWB and Other HWPs
 
                         </a>
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts6" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts10" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
                             Mail users of HWPM
-
                         </a>
+
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts11" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
+                            DAE Guest Houses
+                        </a>
+
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts12" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
+                            Anunet Access Codes
+                        </a>
+
+                        
 
                         <div class="sb-sidenav-menu-heading">Telephone Admin</div>
 
                         <a class="nav-link collapsed" href="teleadmin.php">
-                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-user-circle"></i></div>
                             Telephone Admin
 
                         </a>
