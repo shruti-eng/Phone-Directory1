@@ -107,17 +107,17 @@ if ($conn->connect_error) die($conn->connect_error);
                         <div class="collapse" id="collapseLayouts2" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="pp.php">Production Process(PP)</a>
-                                <a class="nav-link" href="#">M & OM/IIS Section</a>
-                                <a class="nav-link" href="#">Mechanical Process(MP)</a>
-                                <a class="nav-link" href="#">Electrical Process(EP)</a>
+                                <a class="nav-link" href="om.php">M & OM/IIS Section</a>
+                                <a class="nav-link" href="mpp.php">Mechanical Process(MP)</a>
+                                <a class="nav-link" href="ep.php">Electrical Process(EP)</a>
                                 <a class="nav-link" href="ip.php">Instrumentation Process(IP)</a>
-                                <a class="nav-link" href="#">Technical Servies</a>
-                                <a class="nav-link" href="#">HRD</a>
-                                <a class="nav-link" href="#">Chemical Lab</a>
-                                <a class="nav-link" href="#">Safety Section</a>
+                                <a class="nav-link" href="ts.php">Technical Servies</a>
+                                <a class="nav-link" href="hrd.php">HRD</a>
+                                <a class="nav-link" href="chemical.php">Chemical Lab</a>
+                                <a class="nav-link" href="safety.php">Safety Section</a>
                                 <a class="nav-link" href="#">Occupations Health Centre</a>
-                                <a class="nav-link" href="#">Civil Site</a>
-                                <a class="nav-link" href="#">Fire Services</a>
+                                <a class="nav-link" href="civilsite.php">Civil Site</a>
+                                <a class="nav-link" href="fire.php">Fire Services</a>
                             </nav>
                         </div>
 
