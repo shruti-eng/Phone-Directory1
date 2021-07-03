@@ -128,20 +128,20 @@ if ($conn->connect_error) die($conn->connect_error);
                         </a>
                         <div class="collapse" id="collapseLayouts3" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="#">Production Utilities(PU)</a>
-                                <a class="nav-link" href="#">Mechanical Utilities(MU)</a>
-                                <a class="nav-link" href="#">DRCC</a>
-                                <a class="nav-link" href="#">Electrical Utilities(EU)</a>
-                                <a class="nav-link" href="#">Instrumentation Utilities(IU)</a>
-                                <a class="nav-link" href="#">CPP Control Room</a>
+                                <a class="nav-link" href="pu.php">Production Utilities(PU)</a>
+                                <a class="nav-link" href="mu.php">Mechanical Utilities(MU)</a>
+                                <a class="nav-link" href="drcc.php">DRCC</a>
+                                <a class="nav-link" href="eu.php">Electrical Utilities(EU)</a>
+                                <a class="nav-link" href="iu.php">Instrumentation Utilities(IU)</a>
+                                <a class="nav-link" href="cppcontrol.php">CPP Control Room</a>
 
                             </nav>
                         </div>
 
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="dps.php" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
                             DPS
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            <!-- <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div> -->
                         </a>
 
                         <a class="nav-link collapsed" href="colony.php" data-toggle="collapse" data-target="#collapseLayouts5" aria-expanded="false" aria-controls="collapseLayouts">
@@ -152,11 +152,11 @@ if ($conn->connect_error) die($conn->connect_error);
 
                         <div class="collapse" id="collapseLayouts5" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="#">Colony Security </a>
-                                <a class="nav-link" href="#">AEC School</a>
-                                <a class="nav-link" href="#">Estate Management Cell - Civil</a>
-                                <a class="nav-link" href="#">Estate Management Cell - Electrical</a>
-                                <a class="nav-link" href="#">HWPM Hospital</a>
+                                <a class="nav-link" href="colonysecurity.php">Colony Security </a>
+                                <a class="nav-link" href="aecs.php">AEC School</a>
+                                <a class="nav-link" href="emcivil.php">Estate Management Cell - Civil</a>
+                                <a class="nav-link" href="emelec.php">Estate Management Cell - Electrical</a>
+                                <a class="nav-link" href="hospital.php">HWPM Hospital</a>
                             </nav>
                         </div>
 
