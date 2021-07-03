@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2021 at 04:22 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 8.0.3
+-- Generation Time: Jul 03, 2021 at 01:43 PM
+-- Server version: 10.1.40-MariaDB
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -28,55 +29,56 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `category_master` (
-  `cname` varchar(100) NOT NULL,
-  `cid` varchar(20) NOT NULL
+  `eno` int(11) NOT NULL,
+  `cname` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `category_master`
 --
 
-INSERT INTO `category_master` (`cname`, `cid`) VALUES
-('Accounts', 'acc'),
-('Administration', 'admin'),
-('AEC School ', 'aecs'),
-('Chemical Lab', 'cl'),
-('Common Places (CL)', 'cl1'),
-('CPP Control Room', 'cppcr'),
-('Civil Site', 'cs'),
-('Common User Numbers at Colony & Site', 'cuser'),
-('DRCC', 'drcc'),
-('EM Cell Colony Civil', 'emcivil'),
-('Common Places (EM Cell Civil)', 'emcivil1'),
-('EM Cell Colony Electrical', 'emelec'),
-('Common Places (EM Cell Electrical)', 'emelec1'),
-('Emergency Numbers', 'en'),
-('Electrical Process (EP)', 'ep'),
-('Common Places (EP)', 'ep1'),
-('Electrical Utilities (EU)', 'eu'),
-('Common Places (EU)', 'eu1'),
-('Fire Services', 'fs'),
-('HWPM Hospital', 'hos'),
-('Common Places (HWPM Hospital)', 'hos1'),
-('HRD', 'hrd'),
-('Instrumentation Process (IP)', 'ip'),
-('Common Places (IP)', 'ip1'),
-('Instrumentation Utilities (IU)', 'iu'),
-('Common Places (IU)', 'iu1'),
-('Managers and Section Heads', 'man'),
-('Mechanical Process (MP)', 'mp'),
-('Common Places (MP)', 'mp1'),
-('Mechanical Utilities (MU)', 'mu'),
-('Common Places (MU)', 'mu1'),
-('Occupations Health Centre', 'ohc'),
-('M&OM / IIS Section', 'om'),
-('Production Process (PP)', 'pp'),
-('Common Places (PP)', 'pp1'),
-('Production Utilities (PU)', 'pu'),
-('Common Places (PU)', 'pu1'),
-('Safety Section', 'ss'),
-('Common Places (SS)', 'ss1'),
-('Technical Servies', 'ts');
+INSERT INTO `category_master` (`eno`, `cname`) VALUES
+(1, 'Accounts'),
+(2, 'Administration'),
+(3, 'AEC School '),
+(4, 'Chemical Lab'),
+(5, 'Common Places (CL)'),
+(6, 'CPP Control Room'),
+(7, 'Civil Site'),
+(8, 'Common User Numbers at Colony & Site'),
+(9, 'DRCC'),
+(10, 'EM Cell Colony Civil'),
+(11, 'Common Places (EM Cell Civil)'),
+(12, 'EM Cell Colony Electrical'),
+(13, 'Common Places (EM Cell Electrical)'),
+(14, 'Emergency Numbers'),
+(15, 'Electrical Process (EP)'),
+(16, 'Common Places (EP)'),
+(17, 'Electrical Utilities (EU)'),
+(18, 'Common Places (EU)'),
+(19, 'Fire Services'),
+(20, 'HWPM Hospital'),
+(21, 'Common Places (HWPM Hospital)'),
+(22, 'HRD'),
+(23, 'Instrumentation Process (IP)'),
+(24, 'Common Places (IP)'),
+(25, 'Instrumentation Utilities (IU)'),
+(26, 'Common Places (IU)'),
+(27, 'Managers and Section Heads'),
+(28, 'Mechanical Process (MP)'),
+(29, 'Common Places (MP)'),
+(30, 'Mechanical Utilities (MU)'),
+(31, 'Common Places (MU)'),
+(32, 'Occupations Health Centre'),
+(33, 'M&OM / IIS Section'),
+(34, 'Production Process (PP)'),
+(35, 'Common Places (PP)'),
+(36, 'Production Utilities (PU)'),
+(37, 'Common Places (PU)'),
+(38, 'Safety Section'),
+(39, 'Common Places (SS)'),
+(40, 'Technical Servies'),
+(41, 'None');
 
 -- --------------------------------------------------------
 
@@ -91,7 +93,7 @@ CREATE TABLE `complaint` (
   `active` int(11) NOT NULL,
   `action` text NOT NULL,
   `technician` text NOT NULL,
-  `updatedon` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `updatedon` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -119,17 +121,23 @@ CREATE TABLE `employee` (
   `section` varchar(50) NOT NULL,
   `pno` int(20) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `mobile` int(20) NOT NULL
+  `mobile` varchar(20) NOT NULL,
+  `cat1` int(11) NOT NULL,
+  `cat2` int(11) NOT NULL,
+  `cat3` int(11) NOT NULL,
+  `cat4` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `employee`
 --
 
-INSERT INTO `employee` (`icno`, `name`, `designation`, `section`, `pno`, `email`, `mobile`) VALUES
-(2340, 'T. Mohana Kumar', 'SO/F', 'I-P', 4451, 'tmohanakumar@man.hwb.gov.in', 0),
-(2505, 'S K Gupta', 'SO/D', 'P-P', 4446, 'skgupta@man.hwb.gov.in', 0),
-(2649, 'Chaitanya A', 'SO/E', 'I-P', 4549, 'chaitanya@man.hwb.gov.in', 0);
+INSERT INTO `employee` (`icno`, `name`, `designation`, `section`, `pno`, `email`, `mobile`, `cat1`, `cat2`, `cat3`, `cat4`) VALUES
+(1234, 'dsffhgj', 'hrhgf', 'Civil', 0, 'asfsgsg@gmail.com', '87647', 10, 11, 41, 0),
+(2340, 'T. Mohana Kumar', 'SO/F', 'I-P', 4451, 'tmohanakumar@man.hwb.gov.in', '0', 23, 0, 0, 0),
+(2505, 'S K Gupta', 'SO/D', 'P-P', 4446, 'skgupta@man.hwb.gov.in', '9014702550', 34, 34, 34, 34),
+(2649, 'Chaitanya A', 'SO/E', 'I-P', 4549, 'chaitanya@man.hwb.gov.in', '0', 23, 23, 23, 23),
+(4545, 'Occupations Health Centre', '', 'Others', 0, '', '', 14, 32, 41, 0);
 
 -- --------------------------------------------------------
 
@@ -144,7 +152,7 @@ CREATE TABLE `phone_master` (
   `wireless_phone` int(10) NOT NULL,
   `zero_dialing` int(10) NOT NULL,
   `jbdetails` text NOT NULL,
-  `complaint_flag` tinyint(1) NOT NULL DEFAULT 0,
+  `complaint_flag` tinyint(1) NOT NULL DEFAULT '0',
   `icno` int(10) NOT NULL,
   `off` tinyint(1) NOT NULL,
   `res` tinyint(1) NOT NULL,
@@ -160,9 +168,10 @@ CREATE TABLE `phone_master` (
 --
 
 INSERT INTO `phone_master` (`pno`, `parallel_pno`, `callerid_phone`, `wireless_phone`, `zero_dialing`, `jbdetails`, `complaint_flag`, `icno`, `off`, `res`, `emergency`, `cat1`, `cat2`, `cat3`, `cat4`) VALUES
-(4427, 0, 1, 0, 0, 'NA', 0, 2747, 0, 0, 0, 0, 0, 0, 0),
+(2345, 1, 1, 1, 1, 'testing', 0, 1234, 0, 0, 0, 10, 11, 41, 0),
 (4446, 1, 0, 0, 0, 'test', 1, 2505, 1, 0, 0, 0, 0, 0, 0),
 (4451, 0, 0, 0, 0, 'test2', 1, 2340, 1, 0, 0, 0, 0, 0, 0),
+(4545, 0, 1, 0, 0, 'ohc test', 0, 0, 0, 0, 0, 14, 32, 41, 0),
 (4549, 0, 0, 0, 0, 'test1', 0, 2649, 1, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
@@ -207,7 +216,7 @@ INSERT INTO `section_master` (`section`, `mgricno`) VALUES
 -- Indexes for table `category_master`
 --
 ALTER TABLE `category_master`
-  ADD PRIMARY KEY (`cid`);
+  ADD PRIMARY KEY (`eno`);
 
 --
 -- Indexes for table `complaint`
@@ -236,6 +245,12 @@ ALTER TABLE `section_master`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `category_master`
+--
+ALTER TABLE `category_master`
+  MODIFY `eno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `complaint`
