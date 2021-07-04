@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2021 at 01:43 PM
--- Server version: 10.1.40-MariaDB
--- PHP Version: 7.3.5
+-- Generation Time: Jul 04, 2021 at 09:17 AM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -78,7 +77,14 @@ INSERT INTO `category_master` (`eno`, `cname`) VALUES
 (38, 'Safety Section'),
 (39, 'Common Places (SS)'),
 (40, 'Technical Servies'),
-(41, 'None');
+(41, 'None'),
+(43, 'DPS'),
+(44, 'Colony Security'),
+(45, 'Ayurvedic and Homeopathy'),
+(46, 'Allopathy'),
+(47, 'Super Spreciality Hospitals at Hyd'),
+(48, 'Heavy Water General Facilities (HWGF)'),
+(49, 'NFC HWB Training School ');
 
 -- --------------------------------------------------------
 
@@ -93,7 +99,7 @@ CREATE TABLE `complaint` (
   `active` int(11) NOT NULL,
   `action` text NOT NULL,
   `technician` text NOT NULL,
-  `updatedon` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `updatedon` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -133,7 +139,6 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`icno`, `name`, `designation`, `section`, `pno`, `email`, `mobile`, `cat1`, `cat2`, `cat3`, `cat4`) VALUES
-(1234, 'dsffhgj', 'hrhgf', 'Civil', 0, 'asfsgsg@gmail.com', '87647', 10, 11, 41, 0),
 (2340, 'T. Mohana Kumar', 'SO/F', 'I-P', 4451, 'tmohanakumar@man.hwb.gov.in', '0', 23, 0, 0, 0),
 (2505, 'S K Gupta', 'SO/D', 'P-P', 4446, 'skgupta@man.hwb.gov.in', '9014702550', 34, 34, 34, 34),
 (2649, 'Chaitanya A', 'SO/E', 'I-P', 4549, 'chaitanya@man.hwb.gov.in', '0', 23, 23, 23, 23),
@@ -152,7 +157,7 @@ CREATE TABLE `phone_master` (
   `wireless_phone` int(10) NOT NULL,
   `zero_dialing` int(10) NOT NULL,
   `jbdetails` text NOT NULL,
-  `complaint_flag` tinyint(1) NOT NULL DEFAULT '0',
+  `complaint_flag` tinyint(1) NOT NULL DEFAULT 0,
   `icno` int(10) NOT NULL,
   `off` tinyint(1) NOT NULL,
   `res` tinyint(1) NOT NULL,
@@ -250,7 +255,7 @@ ALTER TABLE `section_master`
 -- AUTO_INCREMENT for table `category_master`
 --
 ALTER TABLE `category_master`
-  MODIFY `eno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `eno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `complaint`

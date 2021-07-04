@@ -138,7 +138,7 @@ if ($conn->connect_error) die($conn->connect_error);
                             </nav>
                         </div>
 
-                        <a class="nav-link collapsed" href="dps.php" data-toggle="collapse" data-target="#collapseLayouts4" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="dps.php" >
                             <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
                             DPS
                             <!-- <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div> -->
@@ -175,19 +175,19 @@ if ($conn->connect_error) die($conn->connect_error);
 
                         <div class="collapse" id="collapseLayouts6" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="#">Ayurvedic & Homeopathy </a>
-                                <a class="nav-link" href="#">Allopathy</a>
-                                <a class="nav-link" href="#">Super Speciality Hospitals at Hyd</a>
+                                <a class="nav-link" href="ayurvedichomeo.php">Ayurvedic & Homeopathy </a>
+                                <a class="nav-link" href="allopathy.php">Allopathy</a>
+                                <a class="nav-link" href="hyd.php">Super Speciality Hospitals at Hyd</a>
                             </nav>
                         </div>
 
 
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts7" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="hwgf.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
                             Heavy Water General Facilities(HWGF)
 
                         </a>
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts8" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="nfc.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
                             NFC HWB Training School
                         </a>
