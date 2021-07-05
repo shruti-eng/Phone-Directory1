@@ -355,6 +355,7 @@ session_start();
                             $len = $query->num_rows;
                             if ($len != 0) {
                                 while ($row = $query->fetch_assoc()) {
+                                    echo "<option selected disabled hidden>Choose Section</option>";
                                     echo "<option>" . $row['section'] . "</option>";
                                 }
                             }
@@ -371,6 +372,7 @@ session_start();
                             $len = $query->num_rows;
                             if ($len != 0) {
                                 while ($row = $query->fetch_assoc()) {
+                                    echo "<option selected disabled hidden>Choose category 1</option>";
                                     echo "<option value='".$row['eno']."'>" . $row['cname'] . "</option>";
                                 }
                             }
@@ -387,6 +389,7 @@ session_start();
                             $len = $query->num_rows;
                             if ($len != 0) {
                                 while ($row = $query->fetch_assoc()) {
+                                    echo "<option selected disabled hidden>Choose category 2</option>";
                                     echo "<option value='".$row['eno']."'>" . $row['cname'] . "</option>";
                                 }
                             }
@@ -403,6 +406,7 @@ session_start();
                             $len = $query->num_rows;
                             if ($len != 0) {
                                 while ($row = $query->fetch_assoc()) {
+                                    echo "<option selected disabled hidden>Choose category 3</option>";
                                     echo "<option value='".$row['eno']."'>" . $row['cname'] . "</option>";
                                 }
                             }

@@ -73,7 +73,7 @@ if (isset($_REQUEST['id'])) {
                             $len = $query->num_rows;
                             if ($len != 0) {
                                 while ($row = $query->fetch_assoc()) {
-                                    echo "<option value='".$row['eno']."'>" . $row['cname'] . "</option>";
+                                    echo "<option value='".$row['eno']."'>" . $row['cname'] . "</option>";                                   
                                 }
                             }
                             ?>
@@ -89,6 +89,7 @@ if (isset($_REQUEST['id'])) {
                             $len = $query->num_rows;
                             if ($len != 0) {
                                 while ($row = $query->fetch_assoc()) {
+                                    
                                     echo "<option value='".$row['eno']."'>" . $row['cname'] . "</option>";
                                 }
                             }
@@ -105,6 +106,7 @@ if (isset($_REQUEST['id'])) {
                             $len = $query->num_rows;
                             if ($len != 0) {
                                 while ($row = $query->fetch_assoc()) {
+                                    
                                     echo "<option value='".$row['eno']."'>" . $row['cname'] . "</option>";
                                 }
                             }
