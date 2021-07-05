@@ -196,7 +196,7 @@ if ($conn->connect_error) die($conn->connect_error);
                             HWB and Other HWPs
 
                         </a>
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts10" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed" href="mails.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-balance-scale"></i></div>
                             Mail users of HWPM
                         </a>

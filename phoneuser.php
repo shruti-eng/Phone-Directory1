@@ -53,16 +53,47 @@ if (isset($_REQUEST['id'])) {
                 <th>Assigned to IC No. </th>
                 <td><?php  echo $icno; ?></td>
 </tr>
-
-            <!-- <tr>
-                <th>Mobile no.</th>
-                <td><?php //  echo $pno; ?></td>
-            </tr> -->
-<!-- 
+           <th>Categories</th>
             <tr>
-                <th>Email Id</th>
-                <td><?php // echo $email; ?></td>
-            </tr> -->
+                <th>Category 1:</th>
+                <td><?php 
+                $cat = $cat1;
+                require_once"config.php";
+                $query_string = "SELECT * FROM `category_master` where `eno`='" . $cat . "'";
+                $query2 = $conn->query($query_string);
+                $row2=$query2->fetch_assoc();
+                echo $row2['cname'];                   
+                 ?>
+                </td>
+            </tr> 
+ 
+            <tr>
+                <th>Category 2:</th>
+                <td>
+                <?php 
+                $cat = $cat2;
+                require_once"config.php";
+                $query_string = "SELECT * FROM `category_master` where `eno`='" . $cat . "'";
+                $query2 = $conn->query($query_string);
+                $row2=$query2->fetch_assoc();
+                echo $row2['cname'];                   
+                 ?>
+                </td>
+            </tr>
+
+            <tr>
+                <th>Category 3:</th>
+                <td>
+                <?php 
+                $cat = $cat3;
+                require_once"config.php";
+                $query_string = "SELECT * FROM `category_master` where `eno`='" . $cat . "'";
+                $query2 = $conn->query($query_string);
+                $row2=$query2->fetch_assoc();
+                echo $row2['cname'];                   
+                 ?>
+                </td>
+            </tr>
 
 
             

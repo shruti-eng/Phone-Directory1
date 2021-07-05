@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2021 at 09:17 AM
+-- Generation Time: Jul 05, 2021 at 07:38 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -126,7 +126,7 @@ CREATE TABLE `employee` (
   `designation` varchar(50) NOT NULL,
   `section` varchar(50) NOT NULL,
   `pno` int(20) NOT NULL,
-  `email` varchar(100) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
   `mobile` varchar(20) NOT NULL,
   `cat1` int(11) NOT NULL,
   `cat2` int(11) NOT NULL,
@@ -173,11 +173,10 @@ CREATE TABLE `phone_master` (
 --
 
 INSERT INTO `phone_master` (`pno`, `parallel_pno`, `callerid_phone`, `wireless_phone`, `zero_dialing`, `jbdetails`, `complaint_flag`, `icno`, `off`, `res`, `emergency`, `cat1`, `cat2`, `cat3`, `cat4`) VALUES
-(2345, 1, 1, 1, 1, 'testing', 0, 1234, 0, 0, 0, 10, 11, 41, 0),
-(4446, 1, 0, 0, 0, 'test', 1, 2505, 1, 0, 0, 0, 0, 0, 0),
-(4451, 0, 0, 0, 0, 'test2', 1, 2340, 1, 0, 0, 0, 0, 0, 0),
+(4446, 1, 0, 0, 0, 'test', 1, 2505, 1, 0, 0, 34, 41, 41, 0),
+(4451, 0, 0, 0, 0, 'test2', 1, 2340, 1, 0, 0, 23, 41, 41, 0),
 (4545, 0, 1, 0, 0, 'ohc test', 0, 0, 0, 0, 0, 14, 32, 41, 0),
-(4549, 0, 0, 0, 0, 'test1', 0, 2649, 1, 0, 0, 0, 0, 0, 0);
+(4549, 0, 0, 0, 0, 'test1', 0, 2649, 1, 0, 0, 23, 41, 41, 0);
 
 -- --------------------------------------------------------
 
