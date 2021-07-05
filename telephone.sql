@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 05, 2021 at 07:38 AM
+-- Generation Time: Jul 05, 2021 at 08:13 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -128,10 +128,10 @@ CREATE TABLE `employee` (
   `pno` int(20) NOT NULL,
   `email` varchar(100) DEFAULT NULL,
   `mobile` varchar(20) NOT NULL,
-  `cat1` int(11) NOT NULL,
-  `cat2` int(11) NOT NULL,
-  `cat3` int(11) NOT NULL,
-  `cat4` int(11) NOT NULL
+  `cat1` int(11) NOT NULL DEFAULT 41,
+  `cat2` int(11) NOT NULL DEFAULT 41,
+  `cat3` int(11) NOT NULL DEFAULT 41,
+  `cat4` int(11) NOT NULL DEFAULT 41
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -139,10 +139,10 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`icno`, `name`, `designation`, `section`, `pno`, `email`, `mobile`, `cat1`, `cat2`, `cat3`, `cat4`) VALUES
-(2340, 'T. Mohana Kumar', 'SO/F', 'I-P', 4451, 'tmohanakumar@man.hwb.gov.in', '0', 23, 0, 0, 0),
+(2340, 'T. Mohana Kumar', 'SO/F', 'I-P', 4451, 'tmohanakumar@man.hwb.gov.in', '0', 23, 41, 41, 41),
 (2505, 'S K Gupta', 'SO/D', 'P-P', 4446, 'skgupta@man.hwb.gov.in', '9014702550', 34, 34, 34, 34),
 (2649, 'Chaitanya A', 'SO/E', 'I-P', 4549, 'chaitanya@man.hwb.gov.in', '0', 23, 23, 23, 23),
-(4545, 'Occupations Health Centre', '', 'Others', 0, '', '', 14, 32, 41, 0);
+(4545, 'Occupations Health Centre', '', 'Others', 0, '', '', 14, 32, 41, 41);
 
 -- --------------------------------------------------------
 
@@ -254,7 +254,7 @@ ALTER TABLE `section_master`
 -- AUTO_INCREMENT for table `category_master`
 --
 ALTER TABLE `category_master`
-  MODIFY `eno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `eno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `complaint`
